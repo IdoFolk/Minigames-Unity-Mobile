@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
-    public Button button;
+    //public Button button;
     /*static List<Touch>[] Touches = new List<Touch>[4];
 
     //private void Update()
