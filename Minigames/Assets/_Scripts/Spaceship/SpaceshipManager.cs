@@ -43,22 +43,22 @@ public class SpaceshipManager : MiniGameManager
         else
             greenShip.isMoving = false;
     }
-    public override void RedAction()
+    public override void RedButtonPressed()
     {
 
     }
 
-    public override void GreenAction()
-    {
-       
-    }
-
-    public override void YellowAction()
+    public override void GreenButtonPressed()
     {
        
     }
 
-    public override void BlueAction()
+    public override void YellowButtonPressed()
+    {
+       
+    }
+
+    public override void BlueButtonPressed()
     {
 
     }
