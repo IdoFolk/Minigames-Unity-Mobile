@@ -10,22 +10,22 @@ public class DavidMiniGameManager : MiniGameManager
     [SerializeField] DavidPlayer Yellow;
     #region PlayerActions
 
-    public override void BlueAction()
+    public override void BlueButtonPressed()
     {
         Blue.Thrust();
     }
 
-    public override void GreenAction()
+    public override void GreenButtonPressed()
     {
         Green.Thrust();
     }
 
-    public override void RedAction()
+    public override void RedButtonPressed()
     {
         Red.Thrust();
     }
 
-    public override void YellowAction()
+    public override void YellowButtonPressed()
     {
         Yellow.Thrust();
     }

@@ -53,7 +53,9 @@ public class InputManager : MonoBehaviour
     {
         get { return red_Touch; }
         set 
-        { 
+        {
+            if (value) MiniGameManager.instace.RedButtonDown();
+            else MiniGameManager.instace.RedButtonUp();
             red_Touch = value;
         }
     }
@@ -63,6 +65,8 @@ public class InputManager : MonoBehaviour
         get { return green_Touch; }
         set
         {
+            if (value) MiniGameManager.instace.GreenButtonDown();
+            else MiniGameManager.instace.GreenButtonUp();
             green_Touch = value;
         }
     }
@@ -72,6 +76,8 @@ public class InputManager : MonoBehaviour
         get { return yellow_Touch; }
         set
         {
+            if (value) MiniGameManager.instace.YellowButtonDown();
+            else MiniGameManager.instace.YellowButtonUp();
             yellow_Touch = value;
         }
     }
@@ -80,16 +86,18 @@ public class InputManager : MonoBehaviour
     {
         get { return blue_Touch; }
         set 
-        { 
+        {
+            if (value) MiniGameManager.instace.BlueButtonDown();
+            else MiniGameManager.instace.BlueButtonUp();
             blue_Touch = value;
         }
     }
     private void Update()
     {
-        if (red_Touch) { MiniGameManager.instace.RedAction(); }
-        if (green_Touch) { MiniGameManager.instace.GreenAction(); }
-        if (yellow_Touch) { MiniGameManager.instace.YellowAction(); }
-        if (blue_Touch) { MiniGameManager.instace.BlueAction(); }
+        if (red_Touch) { MiniGameManager.instace.RedButtonPressed(); }
+        if (green_Touch) { MiniGameManager.instace.GreenButtonPressed(); }
+        if (yellow_Touch) { MiniGameManager.instace.YellowButtonPressed(); }
+        if (blue_Touch) { MiniGameManager.instace.BlueButtonPressed(); }
     }
 
 }
