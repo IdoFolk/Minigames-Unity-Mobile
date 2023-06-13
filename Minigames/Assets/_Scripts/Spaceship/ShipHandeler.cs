@@ -5,12 +5,13 @@ using UnityEngine;
 public class ShipHandeler : MonoBehaviour
 {
     public bool isMoving;
+    public bool rotateDirection;
+    public PlayerColor shipColor;
 
     [SerializeField] float rotationSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] GameObject bulletPrefab;
 
-    private bool shot;
 
     private void FixedUpdate()
     {
@@ -18,22 +19,23 @@ public class ShipHandeler : MonoBehaviour
     }
     public void Shoot()
     {
-        if (!shot)
-        {
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
-            shot = true;
-        }
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        bullet.GetComponent<BulletHandeler>().bulletColor = shipColor;
     }
     private void MovementHandeler()
     {
         if (!isMoving)
         {
-            transform.Rotate(Vector3.forward * rotationSpeed * Time.fixedDeltaTime);
+            if (rotateDirection)
+                transform.Rotate(Vector3.forward * rotationSpeed * Time.fixedDeltaTime);
+            else
+                transform.Rotate(Vector3.back * rotationSpeed * Time.fixedDeltaTime);
         }
         else
         {
             transform.Translate(Vector3.up * moveSpeed * Time.fixedDeltaTime);
         }
     }
+   
 
 }
