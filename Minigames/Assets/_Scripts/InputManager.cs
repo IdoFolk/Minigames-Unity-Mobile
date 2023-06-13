@@ -5,50 +5,50 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
-    //public Button button;
-    /*static List<Touch>[] Touches = new List<Touch>[4];
+    /*public Button button;
+    static List<Touch>[] Touches = new List<Touch>[4];
 
-    //private void Update()
-    //{
-    //    Touches = new List<Touch>[4];
-    //    Touches[0] = new(); //Left Down
-    //    Touches[1] = new(); //Left Up
-    //    Touches[2] = new(); //Right Down
-    //    Touches[3] = new(); //Right Up
-    //    foreach (Touch touch in Input.touches)
-    //    {
-    //        if (touch.position.x < Screen.width / 2)
-    //        {
-    //            if (touch.position.y < Screen.height / 2)
-    //            {
-    //                Touches[0].Add(touch);
-    //                Debug.Log("Left Down");
-    //            }
-    //            else
-    //            {
+    private void Update()
+    {
+        Touches = new List<Touch>[4];
+        Touches[0] = new(); //Left Down
+        Touches[1] = new(); //Left Up
+        Touches[2] = new(); //Right Down
+        Touches[3] = new(); //Right Up
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.position.x < Screen.width / 2)
+            {
+                if (touch.position.y < Screen.height / 2)
+                {
+                    Touches[0].Add(touch);
+                    Debug.Log("Left Down");
+                }
+                else
+                {
 
-    //                Debug.Log("Left Up");
-    //                Touches[1].Add(touch);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            if (touch.position.y < Screen.height / 2)
-    //            {
+                    Debug.Log("Left Up");
+                    Touches[1].Add(touch);
+                }
+            }
+            else
+            {
+                if (touch.position.y < Screen.height / 2)
+                {
 
-    //                Debug.Log("Right Down");
-    //                Touches[2].Add(touch);
-    //            }
-    //            else
-    //            {
+                    Debug.Log("Right Down");
+                    Touches[2].Add(touch);
+                }
+                else
+                {
 
-    //                Debug.Log("Right Up");
-    //                Touches[3].Add(touch);
-    //            }
-    //        }
-    //    }
+                    Debug.Log("Right Up");
+                    Touches[3].Add(touch);
+                }
+            }
+        }
     */
-     static bool red_Touch;
+    static bool red_Touch;
     public static bool RedTouch 
     {
         get { return red_Touch; }
