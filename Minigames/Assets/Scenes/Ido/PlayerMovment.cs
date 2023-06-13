@@ -9,12 +9,16 @@ public class PlayerMovment : MiniGameManager
     [SerializeField] IdoPlayer Red;
     [SerializeField] IdoPlayer Yellow;
 
+    
     float m_Speed;
     #region PlayerActions
+
+
 
     public override void BlueAction()
     {
         Blue.Foward();
+
     }
                
 
@@ -32,5 +36,6 @@ public class PlayerMovment : MiniGameManager
     {
         Yellow.Foward();
     }
+
 }
  #endregion 
