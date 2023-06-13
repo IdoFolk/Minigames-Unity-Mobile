@@ -10,12 +10,12 @@ public class IdoPlayer : MonoBehaviour
 
     float moveSpeed = 7f;
 
-    public void Update()
+    public void FixedUpdate()
     {
         
         transform.Rotate(0f, 0f, 100 * Time.deltaTime, Space.Self);
         ScreenWrap();
-     
+
     }
 
     public void Foward() // canceles rotation on moves foward
@@ -45,13 +45,39 @@ public class IdoPlayer : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+private void OnCollisionEnter2D(Collision2D collision)
+{
+    if (collision.gameObject.name == "Crown")
     {
-        if (collision.gameObject.name == "Crown")
-        {
-            // Set the player as the parent of the collided object
-            Debug.Log("2134");
-            collision.transform.SetParent(transform, true);
-        }
+        // Set the player as the parent of the collided object
+        Debug.Log("2134");
+        collision.transform.SetParent(transform);
+        collision.transform.localPosition = new Vector2(0f, 0f); // Adjust the position as needed
+
+        // Disable collision on the parent object
+        GetComponent<Collider2D>().enabled = false;
+
+        // Enable collision on the child object
+        collision.collider.enabled = true;
+
+        // Start a coroutine to check and enable the collider on the previous parent object after 2 seconds
+        StartCoroutine(CheckEnableCollisionAfterDelay(GetComponent<Collider2D>(), 6f));
     }
 }
+
+private IEnumerator CheckEnableCollisionAfterDelay(Collider2D collider, float delay)
+{
+    yield return new WaitForSeconds(delay);
+
+    // Wait until the previous parent object loses its child object
+    while (transform.childCount > 0)
+    {
+        yield return null;
+    }
+
+    // Enable collision on the collider of the previous parent object
+    collider.enabled = true;
+}
+
+}
+
