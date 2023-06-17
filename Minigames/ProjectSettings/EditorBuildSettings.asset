@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Folkman/Spaceship Battle.unity
     guid: e72903412b4ffe043a5fe5a5f52c85ee
+  - enabled: 1
+    path: Assets/Scenes/Johnny/PackageDelivery.unity
+    guid: 424034b5637670944a2ae553952eead7
   m_configObjects: {}
