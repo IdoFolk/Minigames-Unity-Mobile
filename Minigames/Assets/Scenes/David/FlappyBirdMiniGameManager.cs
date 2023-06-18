@@ -15,6 +15,8 @@ public class FlappyBirdMiniGameManager : MiniGameManager
 
     public ObstaclePullManager ObstaclePullManager;
 
+    static public bool isPaused = false;
+
     public int SpawnRate = 1;
     float timeAtLastSpawn = 5;
 
@@ -57,7 +59,7 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     #region MapGeneration
     private void Update()
     {
-        if (Time.timeSinceLevelLoad - timeAtLastSpawn >= SpawnRate)
+        if (Time.timeSinceLevelLoad - timeAtLastSpawn >= SpawnRate&&!isPaused)
         {
             timeAtLastSpawn = Time.timeSinceLevelLoad;
             ObstaclePullManager.Spawn();
@@ -101,6 +103,11 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     public void OpenEndMenu()
     {
         EndGameUI.SetActive(true);
+        isPaused = true;
+        Blue.Pause(false);
+        Green.Pause(false);
+        Yellow.Pause(false);
+        Red.Pause(false);
     }
     #endregion
 }

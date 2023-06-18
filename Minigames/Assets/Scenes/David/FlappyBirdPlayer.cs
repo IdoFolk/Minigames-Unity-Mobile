@@ -8,6 +8,7 @@ public class FlappyBirdPlayer : MonoBehaviour
 
     public void Thrust()
     {
+        if (FlappyBirdMiniGameManager.isPaused) return;
         body.velocity = Vector2.up * 7;
     }
     public void ActivateBody()
@@ -22,5 +23,9 @@ public class FlappyBirdPlayer : MonoBehaviour
     {
         gameObject.SetActive(false);
         ((FlappyBirdMiniGameManager)MiniGameManager.instace).CheckPlayers();
+    }
+    public void Pause(bool pause)
+    {
+        body.simulated = pause;
     }
 }

@@ -9,9 +9,13 @@ public class PlayMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void PlayFlappyBirdGame()
+    {
+        SceneManager.LoadScene(2);
+    }
     public void PlayRandomGame()
     {
-        int rand = Random.Range(1, 2);
+        int rand = Random.Range(1, 3);
         SceneManager.LoadScene(rand);
     }
 }
