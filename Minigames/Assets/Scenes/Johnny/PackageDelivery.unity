@@ -958,8 +958,6 @@ GameObject:
   - component: {fileID: 585590918}
   - component: {fileID: 585590919}
   - component: {fileID: 585590920}
-  - component: {fileID: 585590921}
-  - component: {fileID: 585590922}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1004,30 +1002,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71501f9942dfd3c4d972a7d3aabf8fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &585590921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585590917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e20a82c2c6f43f458f741e7d49bcdb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &585590922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585590917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e20a82c2c6f43f458f741e7d49bcdb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &821696185
@@ -2391,7 +2365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 2
-  RotateSpeed: 0.001
+  RotateSpeed: 0.0001
   PlayerRigidBody: {fileID: 564246943}
   PlayerWheelRigidBody: {fileID: 1701502519}
 --- !u!212 &1701502517
@@ -2434,7 +2408,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0.9647059, b: 0, a: 1}
   m_FlipX: 0

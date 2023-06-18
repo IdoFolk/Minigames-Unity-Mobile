@@ -10,12 +10,10 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
 
     public float movingSpeed = 0.001f;
     public float RotateSpeed;
-    private Quaternion initialRotation;
 
     [SerializeField] public Rigidbody2D PlayerRigidBody;
     [SerializeField] public Rigidbody2D PlayerWheelRigidBody;
 
-    private float _startingPosition;
     private float startAngle = 360f;
 
     // Start is called before the first frame update
@@ -25,7 +23,7 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
      PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
       PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
