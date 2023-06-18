@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Folkman/Spaceship Battle.unity
     guid: e72903412b4ffe043a5fe5a5f52c85ee
+  - enabled: 1
+    path: Assets/Scenes/David/Flappy Bird.unity
+    guid: 094ea20da0308ca47b623754de9797e4
   m_configObjects: {}

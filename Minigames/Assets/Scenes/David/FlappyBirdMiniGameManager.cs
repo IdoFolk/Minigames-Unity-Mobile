@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FlappyBirdMiniGameManager : MiniGameManager
 {
@@ -12,10 +14,12 @@ public class FlappyBirdMiniGameManager : MiniGameManager
 
     [SerializeField] GameObject EndGameUI;
     [SerializeField] TMPro.TMP_Text PlayerWon;
+    [SerializeField] List<RawImage> Paralaxes;
+    [SerializeField] List<float> ParalaxSpeed;
 
     public ObstaclePullManager ObstaclePullManager;
 
-    static public bool isPaused = false;
+    static public bool isPaused = true;
 
     public int SpawnRate = 1;
     float timeAtLastSpawn = 5;
@@ -23,6 +27,7 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     #region Start Scene
     public void StartScene()
     {
+        isPaused = false;
         Blue.ActivateBody();
         Green.ActivateBody();
         Red.ActivateBody();
@@ -63,6 +68,11 @@ public class FlappyBirdMiniGameManager : MiniGameManager
         {
             timeAtLastSpawn = Time.timeSinceLevelLoad;
             ObstaclePullManager.Spawn();
+        }
+        if (isPaused) return;
+        for (int i = 0; i < Paralaxes.Count;i++)
+        {
+            Paralaxes[i].uvRect = new Rect(Paralaxes[i].uvRect.x + ParalaxSpeed[i]*Time.deltaTime, Paralaxes[i].uvRect.y, Paralaxes[i].uvRect.width, Paralaxes[i].uvRect.height);
         }
     }
     public void CheckPlayers()
@@ -108,6 +118,15 @@ public class FlappyBirdMiniGameManager : MiniGameManager
         Green.Pause(false);
         Yellow.Pause(false);
         Red.Pause(false);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void Leave()
+    {
+        SceneManager.LoadScene(0);
     }
     #endregion
 }
