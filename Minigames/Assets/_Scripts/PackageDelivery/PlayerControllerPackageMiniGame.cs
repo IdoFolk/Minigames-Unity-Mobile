@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 
 public class PlayerControllerPackageMiniGame : MonoBehaviour
 {
+
     public float movingSpeed = 0.001f;
     public float RotateSpeed;
     private Quaternion initialRotation;
 
     [SerializeField] public Rigidbody2D PlayerRigidBody;
     [SerializeField] public Rigidbody2D PlayerWheelRigidBody;
-    [SerializeField] public RectTransform playerWheelRectTransform;
 
     private float _startingPosition;
     private float startAngle = 360f;
@@ -21,18 +21,17 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initialRotation = playerWheelRectTransform.rotation;
         
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
-        PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
+     PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
+      PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
         
-        RotateSteeringWheel();
         KeepPlayerOnScreen();
+        RotateSteeringWheel();
     }
 
     private void KeepPlayerOnScreen()
@@ -64,10 +63,9 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
     {
         Vector2 direction = (Vector2)GetPositionOfInput() - (Vector2)PlayerWheelRigidBody.transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - startAngle;
-        //Debug.Log($"ANgle BullShit {angle}");
+        //Debug.Log($"Angle BullShit {angle}");
         if (angle < PlayerWheelRigidBody.transform.eulerAngles.z)
         {
-            //float rotationAmount = angle - RotateSpeed * Time.deltaTime;
             //Debug.Log(rotationAmount);
             //PlayerWheelRigidBody.transform.eulerAngles = new Vector3(0, 0, rotationAmount);
             Quaternion TargetRot = Quaternion.Euler(PlayerWheelRigidBody.transform.eulerAngles = new Vector3(0, 0, angle));
@@ -93,13 +91,15 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
             {
                 if (collider.CompareTag("Circle"))
                 {
+                    collider.GetComponent<PlayerControllerPackageMiniGame>().CalculateRotationForSteeringWheel();
                     //Debug.Log("This is indeed a circle");
-                    CalculateRotationForSteeringWheel();
                     break;
                 }
             }
         }
     }
+
+    
 
 }
 
