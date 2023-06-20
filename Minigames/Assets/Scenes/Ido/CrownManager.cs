@@ -9,8 +9,10 @@ public class CrownManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Set the player as the parent of the collided object
-            Debug.Log("2134");
             collision.transform.SetParent(transform, true);
+
+            // Rotate the collided object to match its parent's rotation
+            collision.transform.rotation = transform.rotation;
         }
     }
 }

@@ -45,27 +45,26 @@ public class IdoPlayer : MonoBehaviour
         }
     }
 
-private void OnCollisionEnter2D(Collision2D collision)
-{
-    if (collision.gameObject.name == "Crown")
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Set the player as the parent of the collided object
-        Debug.Log("2134");
-        collision.transform.SetParent(transform);
-        collision.transform.localPosition = new Vector2(0f, 0f); // Adjust the position as needed
+        if (collision.gameObject.name == "Crown")
+        {
+            // Set the player as the parent of the collided object
+            collision.transform.SetParent(transform);
+            collision.transform.localPosition = new Vector2(0f, 0f);
+            
+            // Disable collision on the parent object
+            GetComponent<Collider2D>().enabled = false;
 
-        // Disable collision on the parent object
-        GetComponent<Collider2D>().enabled = false;
+            // Enable collision on the child object
+            collision.enabled = true;
 
-        // Enable collision on the child object
-        collision.collider.enabled = true;
-
-        // Start a coroutine to check and enable the collider on the previous parent object after 2 seconds
-        StartCoroutine(CheckEnableCollisionAfterDelay(GetComponent<Collider2D>(), 6f));
+            // Start a coroutine to check and enable the collider on the previous parent object after 2 seconds
+            StartCoroutine(CheckEnableCollisionAfterDelay(GetComponent<Collider2D>(), 3f));
+        }
     }
-}
 
-private IEnumerator CheckEnableCollisionAfterDelay(Collider2D collider, float delay)
+    private IEnumerator CheckEnableCollisionAfterDelay(Collider2D collider, float delay)
 {
     yield return new WaitForSeconds(delay);
 
@@ -74,10 +73,9 @@ private IEnumerator CheckEnableCollisionAfterDelay(Collider2D collider, float de
     {
         yield return null;
     }
-
-    // Enable collision on the collider of the previous parent object
-    collider.enabled = true;
-}
+        // Enable collision on the collider of the previous parent object
+        collider.enabled = true;
+    }
 
 }
 
