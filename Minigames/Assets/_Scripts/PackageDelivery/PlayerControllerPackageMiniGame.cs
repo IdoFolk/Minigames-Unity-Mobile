@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class PlayerControllerPackageMiniGame : MonoBehaviour
 {
@@ -19,14 +20,16 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
 
     void Update()
     {
-     PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
-      PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
+
+
+        // PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
+        PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
         
         KeepPlayerOnScreen();
         RotateSteeringWheel();

@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class PlayerActorHandeler : MonoBehaviour
 {
+    [SerializeField] public Rigidbody2D PlayerActorRB;
+    [SerializeField] public GameObject PackageOnPlayer;
+    [SerializeField] public float MovmentSpeed;
+
     [SerializeField] TMP_Text PlayerScoreCount;
     [SerializeField] private int Score;
-    [SerializeField] public GameObject PackageOnPlayer;
-
-    
     
     private bool _isPackageOnPlayer;
     // Start is called before the first frame update
@@ -22,6 +23,9 @@ public class PlayerActorHandeler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerActorRB.AddRelativeForce(new Vector2(0, 1 * MovmentSpeed * Time.deltaTime));
+
+        // PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
         PlayerScoreCount.SetText(Score.ToString());
     }
     private void OnTriggerEnter2D(Collider2D collision)
