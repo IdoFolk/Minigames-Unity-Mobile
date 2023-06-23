@@ -10,4 +10,9 @@ public class MainMenuManager : MonoBehaviour
         gameObject.SetActive(false);
         playMenu.gameObject.SetActive(true);
     }
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
+
 }
