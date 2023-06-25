@@ -25,7 +25,7 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     float timeAtLastSpawn = 5;
 
     #region Start Scene
-    public void StartScene()
+    public override void StartScene()
     {
         isPaused = false;
         Blue.ActivateBody();

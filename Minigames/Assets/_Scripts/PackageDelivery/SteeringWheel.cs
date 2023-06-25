@@ -17,20 +17,12 @@ public class SteeringWheel : MonoBehaviour
 
     private float startAngle = 360f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
 
-
+        if(PackageGameManager.Instance.isGamePaused) return; 
         // PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
         PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
-        
         RotateSteeringWheel();
     }
 

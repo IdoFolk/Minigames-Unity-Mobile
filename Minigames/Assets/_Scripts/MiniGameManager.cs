@@ -5,6 +5,10 @@ using UnityEngine;
 public abstract class MiniGameManager : MonoBehaviour
 {
     public static MiniGameManager instace;
+    public virtual void StartScene()
+    {
+        Debug.Log("Here You Put what starts your scene for The Countdown");
+    }
     /// <summary>
     /// Activated if button is being pressed
     /// </summary>

@@ -10,12 +10,12 @@ public class PlayerShipHandeler : MonoBehaviour
     [SerializeField] public GameObject PackageOnPlayer;
     [SerializeField] public GameObject Base;
     [SerializeField] public float MovmentSpeed;
-    
+    [SerializeField] public float KnockbackForce;
 
     [SerializeField] TMP_Text PlayerScoreCount;
     [SerializeField] private int Score;
     
-    private bool _isPackageOnPlayer;
+    public bool _isPackageOnPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,7 @@ public class PlayerShipHandeler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PackageGameManager.Instance.isGamePaused) return;
         PlayerActorRB.AddRelativeForce(new Vector2(0, 1 * MovmentSpeed * Time.deltaTime));
         PlayerScoreCount.SetText(Score.ToString());
         KeepPlayerOnScreen();
@@ -77,7 +78,14 @@ public class PlayerShipHandeler : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log("Bonk");
+            Vector2 direction = (collision.rigidbody.velocity - PlayerActorRB.velocity);
+            Vector2 knockBack = direction * KnockbackForce;
+            collision.rigidbody.AddForce(knockBack);
+            if (!collision.gameObject.GetComponent<PlayerShipHandeler>()._isPackageOnPlayer) return;
+            PackageOnPlayer.SetActive(true);
+            _isPackageOnPlayer = true;
+            collision.gameObject.GetComponent<PlayerShipHandeler>()._isPackageOnPlayer = false;
+            collision.gameObject.GetComponent<PlayerShipHandeler>().PackageOnPlayer.SetActive(false);
         }
     }
 }

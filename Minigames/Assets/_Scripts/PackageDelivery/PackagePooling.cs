@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class PackagePooling : MonoBehaviour
 {
-    public static PackagePooling PoolingInstance;
-
     [SerializeField] public GameObject PackagePrefab;
     [SerializeField] public int PackageCount;
 
+    public static PackagePooling PoolingInstance;
 
     private List<GameObject> _packagePool = new List<GameObject>();
 
@@ -28,15 +27,11 @@ public class PackagePooling : MonoBehaviour
             _packagePool.Add(gameObject);
         }
     }
-
-    
-
     // Update is called once per frame
     void Update()
     {
 
     }
-
 
     public GameObject PullFromPackagePool()
     {

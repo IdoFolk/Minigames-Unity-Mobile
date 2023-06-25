@@ -1,38 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PackageGameManager : MiniGameManager
 {
+    [SerializeField] public GameObject PauseMenu;
+    [SerializeField] public GameObject WinScreen;
+    [SerializeField] public TMP_Text MiniGameWinnerText;
+    [SerializeField] public ParticleSystem BackgroundStars;
+
+
+    [Header("Players")]
+    [SerializeField] GameObject YellowPlayer;
+    [SerializeField] GameObject RedPlayer;
+    [SerializeField] GameObject BluePlayer;
+    [SerializeField] GameObject GreenPlayer;
+    
     public static PackageGameManager Instance;
-   
+    public bool isGamePaused = true;
+
+    private int TopScore;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = new();
+        BackgroundStars.Pause();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    public override void StartScene()
+    {
+        PackageGameManager.Instance.isGamePaused = false;
+        BackgroundStars.Play();
+    }
+    public void ActivatePauseButton()
+    {
+        isGamePaused = true;
+        PauseMenu.SetActive(true);
+        BackgroundStars.Pause();
+    }
+    public void ActivateWinScreen()
+    {
+        isGamePaused = true;
+        WinScreen.SetActive(true);
+        BackgroundStars.Pause();
 
     }
-    private const float startAngle = 360;
-
-    public override void YellowButtonPressed()
+    public void Restart()
     {
-        
-            Vector2 mp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-
-            Vector2 dir = mp - (Vector2)transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - startAngle;
-
-            if (angle < transform.eulerAngles.z)
-            {
-                transform.eulerAngles = new Vector3(0, 0, angle);
-            }
-
-        
+        SceneManager.LoadScene(3);
+    }
+    public void Leave()
+    {
+        SceneManager.LoadScene(0);
     }
 }
+
