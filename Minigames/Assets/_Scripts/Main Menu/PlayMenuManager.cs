@@ -13,9 +13,13 @@ public class PlayMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    public void PlayCaptureThePackagesGame()
+    {
+        SceneManager.LoadScene(3);
+    }
     public void PlayRandomGame()
     {
-        int rand = Random.Range(1, 3);
+        int rand = Random.Range(1, 4);
         SceneManager.LoadScene(rand);
     }
 }
