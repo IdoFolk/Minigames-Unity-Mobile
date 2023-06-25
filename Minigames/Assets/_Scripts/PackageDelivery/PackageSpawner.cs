@@ -21,7 +21,7 @@ public class PackageSpawner : MonoBehaviour
         if(Time.time >= NextSpawnTime)
         {
             PlacePackageOnRandomSpot();
-            NextSpawnTime = Time.timeSinceLevelLoad + SpawnerTimer;
+            NextSpawnTime = Time.time + SpawnerTimer;
         }
     }
 
