@@ -17,6 +17,11 @@ public class PlayMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void PlayTagGame()
+    {
+        SceneManager.LoadScene(4);
+    }
     public void PlayRandomGame()
     {
         int rand = Random.Range(1, 4);
