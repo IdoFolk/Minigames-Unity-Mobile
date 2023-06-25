@@ -17,24 +17,24 @@ public class PlayerMovment : MiniGameManager
 
     public override void BlueAction()
     {
-        Blue.Foward();
+        Blue.Forward();
 
     }
                
 
     public override void GreenAction()
     {
-        Green.Foward();
+        Green.Forward();
     }
 
     public override void RedAction()
     {
-        Red.Foward();
+        Red.Forward();
     }
 
     public override void YellowAction()
     {
-        Yellow.Foward();
+        Yellow.Forward();
     }
 
 }

@@ -5,30 +5,23 @@ using UnityEngine;
 
 public class IdoPlayer : MonoBehaviour
 {
-
     [SerializeField] Rigidbody2D body;
-
     float moveSpeed = 7f;
 
     public void FixedUpdate()
     {
-        
         transform.Rotate(0f, 0f, 100 * Time.deltaTime, Space.Self);
         ScreenWrap();
-
     }
 
-    public void Foward() // canceles rotation on moves foward
+    public void Forward() // cancels rotation and moves forward
     {
         transform.Rotate(0f, 0f, -100 * Time.deltaTime, Space.Self);
         transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
-
     }
 
-
-    private void ScreenWrap() // Makes you appear on the oppisite side of the screen
+    private void ScreenWrap() // Makes the player appear on the opposite side of the screen
     {
-
         var cam = Camera.main;
         var viewportPosition = cam.WorldToViewportPoint(transform.position);
         var newPosition = transform.position;
@@ -49,33 +42,45 @@ public class IdoPlayer : MonoBehaviour
     {
         if (collision.gameObject.name == "Crown")
         {
-            // Set the player as the parent of the collided object
-            collision.transform.SetParent(transform);
-            collision.transform.localPosition = new Vector2(0f, 0f);
-            
-            // Disable collision on the parent object
-            GetComponent<Collider2D>().enabled = false;
-
-            // Enable collision on the child object
-            collision.enabled = true;
-
-            // Start a coroutine to check and enable the collider on the previous parent object after 2 seconds
-            StartCoroutine(CheckEnableCollisionAfterDelay(GetComponent<Collider2D>(), 3f));
+            StartCoroutine(TransferCrownWithDelay(collision.transform, 0.2f)); // Change the delay time here (e.g., 0.5f)
         }
     }
 
-    private IEnumerator CheckEnableCollisionAfterDelay(Collider2D collider, float delay)
-{
-    yield return new WaitForSeconds(delay);
-
-    // Wait until the previous parent object loses its child object
-    while (transform.childCount > 0)
+    private IEnumerator TransferCrownWithDelay(Transform crownTransform, float delay)
     {
-        yield return null;
+        yield return new WaitForSeconds(delay);
+
+        // Set the player as the parent of the crown
+        crownTransform.SetParent(transform);
+        crownTransform.localPosition = Vector2.zero;
+
+        // Disable collision on the parent object
+        GetComponent<Collider2D>().enabled = false;
+
+        // Disable collision on the child object (crown)
+        crownTransform.GetComponent<Collider2D>().enabled = false;
+
+        yield return new WaitForSeconds(delay); // Wait for another delay
+
+        // Enable collision on the child object (crown)
+        crownTransform.GetComponent<Collider2D>().enabled = true;
+
+        // Enable collision on the parent object
+        GetComponent<Collider2D>().enabled = true;
     }
+
+    private IEnumerator CheckEnableCollisionAfterDelay(Collider2D collider, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Wait until the previous parent object loses its child object
+        while (transform.childCount > 0)
+        {
+            yield return null;
+        }
+
         // Enable collision on the collider of the previous parent object
         collider.enabled = true;
     }
-
 }
 
