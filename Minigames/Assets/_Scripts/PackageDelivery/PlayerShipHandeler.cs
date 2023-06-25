@@ -13,7 +13,7 @@ public class PlayerShipHandeler : MonoBehaviour
     [SerializeField] public float KnockbackForce;
 
     [SerializeField] TMP_Text PlayerScoreCount;
-    [SerializeField] private int Score;
+    [SerializeField] public int Score;
     
     public bool _isPackageOnPlayer;
     // Start is called before the first frame update
@@ -82,6 +82,7 @@ public class PlayerShipHandeler : MonoBehaviour
             Vector2 knockBack = direction * KnockbackForce;
             collision.rigidbody.AddForce(knockBack);
             if (!collision.gameObject.GetComponent<PlayerShipHandeler>()._isPackageOnPlayer) return;
+            if (_isPackageOnPlayer) return;
             PackageOnPlayer.SetActive(true);
             _isPackageOnPlayer = true;
             collision.gameObject.GetComponent<PlayerShipHandeler>()._isPackageOnPlayer = false;
