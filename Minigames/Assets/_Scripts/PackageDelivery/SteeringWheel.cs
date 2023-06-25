@@ -4,8 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
-public class PlayerControllerPackageMiniGame : MonoBehaviour
+public class SteeringWheel : MonoBehaviour
 {
 
     public float movingSpeed = 0.001f;
@@ -16,46 +17,16 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
 
     private float startAngle = 360f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
     void Update()
     {
-     PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
-      PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
-        
-        KeepPlayerOnScreen();
+
+        if(PackageGameManager.Instance.isGamePaused) return; 
+        // PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
+        PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
         RotateSteeringWheel();
     }
 
-    private void KeepPlayerOnScreen()
-    {
-        Vector3 newPosition = PlayerRigidBody.transform.position;
-        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(PlayerRigidBody.transform.position);
-        if (viewportPosition.x > 1)
-        {
-            newPosition.x = -newPosition.x + 0.1f;
-        }
-        else if (viewportPosition.x < 0)
-        {
-            newPosition.x = -newPosition.x - 0.1f;
-
-        }
-        if (viewportPosition.y > 1)
-        {
-            newPosition.y = -newPosition.y + 0.1f;
-        }
-        else if (viewportPosition.y < 0)
-        {
-            newPosition.y = -newPosition.y - 0.1f;
-
-        }
-        PlayerRigidBody.transform.position = newPosition;
-    }
+    
 
     private void CalculateRotationForSteeringWheel()
     {
@@ -89,7 +60,7 @@ public class PlayerControllerPackageMiniGame : MonoBehaviour
             {
                 if (collider.CompareTag("Circle"))
                 {
-                    collider.GetComponent<PlayerControllerPackageMiniGame>().CalculateRotationForSteeringWheel();
+                    collider.GetComponent<SteeringWheel>().CalculateRotationForSteeringWheel();
                     //Debug.Log("This is indeed a circle");
                     break;
                 }

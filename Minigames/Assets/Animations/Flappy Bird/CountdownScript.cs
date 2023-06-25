@@ -6,6 +6,7 @@ public class CountdownScript : MonoBehaviour
 {
     [SerializeField] TMPro.TMP_Text text;
     [SerializeField] int _number;
+    [SerializeField] MiniGameManager miniGameManager;
 
     public void ChangeText()
     {
@@ -15,6 +16,7 @@ public class CountdownScript : MonoBehaviour
     public void End()
     {
         Destroy(gameObject);
-        ((FlappyBirdMiniGameManager)MiniGameManager.instace).StartScene();
+        miniGameManager.StartScene();
     }
+   
 }
