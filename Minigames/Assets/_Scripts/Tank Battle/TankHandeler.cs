@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipHandeler : MonoBehaviour
+public class TankHandeler : MonoBehaviour
 {
     public bool isMoving;
     public bool rotateDirection;
-    public PlayerColor shipColor;
+    public PlayerColor tankColor;
 
     [SerializeField] float rotationSpeed;
     [SerializeField] float moveSpeed;
@@ -20,7 +20,7 @@ public class ShipHandeler : MonoBehaviour
     public void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        bullet.GetComponent<BulletHandeler>().bulletColor = shipColor;
+        bullet.GetComponent<BulletHandeler>().bulletColor = tankColor;
     }
     private void MovementHandeler()
     {

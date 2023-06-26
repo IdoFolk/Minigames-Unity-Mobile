@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayMenuManager : MonoBehaviour
 {
-    public void PlaySpaceshipGame()
+    public void PlayTankBattle()
     {
         SceneManager.LoadScene(1);
     }
@@ -17,14 +17,13 @@ public class PlayMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
-
     public void PlayTagGame()
     {
         SceneManager.LoadScene(4);
     }
-    public void PlayRandomGame()
+    public void PlayTournament()
     {
-        int rand = Random.Range(1, 4);
+        int rand = Random.Range(1, 5);
         SceneManager.LoadScene(rand);
     }
 }

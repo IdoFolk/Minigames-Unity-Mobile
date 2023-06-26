@@ -29,8 +29,9 @@ public class BulletHandeler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<ShipHandeler>().shipColor != bulletColor)
+            if (collision.gameObject.GetComponent<TankHandeler>().tankColor != bulletColor)
             {
+                TankBattleGameManager.instance.AddToScore(bulletColor);
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
             }
@@ -39,9 +40,13 @@ public class BulletHandeler : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Astroid"))
+        if (collision.gameObject.CompareTag("Barrel"))
         {
             Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
             Destroy(gameObject);
         }
     }
