@@ -23,8 +23,19 @@ public class TankHandeler : MonoBehaviour
     }
     public void Shoot()
     {
+        if (TankBattleGameManager.Instance.GamePaused) return;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         bullet.GetComponent<BulletHandeler>().bulletColor = tankColor;
+    }
+    public void Move(bool state)
+    {
+        if (TankBattleGameManager.Instance.GamePaused) return;
+        isMoving = state;
+    }
+    public void SwitchRotateDirection()
+    {
+        if (TankBattleGameManager.Instance.GamePaused) return;
+        rotateDirection = !rotateDirection;
     }
     private void MovementHandeler()
     {
@@ -37,11 +48,13 @@ public class TankHandeler : MonoBehaviour
         }
         else
         {
+            if (TankBattleGameManager.Instance.GamePaused) return;
             transform.Translate(Vector3.up * moveSpeed * Time.fixedDeltaTime);
         }
     }
     private void KeepPlayerOnScreen()
     {
+        if (TankBattleGameManager.Instance.GamePaused) return;
         Vector3 newPosition = PlayerActorRB.transform.position;
         Vector3 viewportPosition = Camera.main.WorldToViewportPoint(PlayerActorRB.transform.position);
         if (viewportPosition.x > 1)

@@ -16,10 +16,12 @@ public class BulletHandeler : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (TankBattleGameManager.Instance.GamePaused) return;
         transform.Translate(Vector3.up * moveSpeed * Time.fixedDeltaTime);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (TankBattleGameManager.Instance.GamePaused) return;
         if (collision.gameObject.CompareTag("Bullet Destroyer"))
         {
             Destroy(gameObject);
@@ -27,6 +29,7 @@ public class BulletHandeler : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (TankBattleGameManager.Instance.GamePaused) return;
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerColor tankColor = collision.gameObject.GetComponent<TankHandeler>().tankColor;

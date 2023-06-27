@@ -8,8 +8,9 @@ public class TankBattleInputManager : MiniGameManager
     [SerializeField] TankHandeler greenTank;
     [SerializeField] TankHandeler redTank;
     [SerializeField] TankHandeler yellowTank;
-    
-   
+
+    private TankBattleGameManager gameManager = TankBattleGameManager.Instance;
+
     private void Start()
     {
         blueTank.tankColor = PlayerColor.Blue;
@@ -22,65 +23,65 @@ public class TankBattleInputManager : MiniGameManager
     public override void BlueButtonDown()
     {
         blueTank.Shoot();
-        blueTank.rotateDirection = !blueTank.rotateDirection;
+        blueTank.SwitchRotateDirection();
     }
 
     public override void BlueButtonPressed()
     {
-        blueTank.isMoving = true;
+        blueTank.Move(true);
     }
 
     public override void BlueButtonUp()
     {
-        blueTank.isMoving = false;
+        blueTank.Move(false);
     }
 
     public override void GreenButtonDown()
     {
         greenTank.Shoot();
-        greenTank.rotateDirection = !greenTank.rotateDirection;
+        greenTank.SwitchRotateDirection();
     }
 
     public override void GreenButtonPressed()
     {
-        greenTank.isMoving = true;
+        greenTank.Move(true);
     }
 
     public override void GreenButtonUp()
     {
-        greenTank.isMoving = false;
+        greenTank.Move(false);
     }
 
     public override void RedButtonDown()
     {
         redTank.Shoot();
-        redTank.rotateDirection = !redTank.rotateDirection;
+        redTank.SwitchRotateDirection();
     }
 
     public override void RedButtonPressed()
     {
-        redTank.isMoving = true;
+        redTank.Move(true);
     }
 
     public override void RedButtonUp()
     {
-        redTank.isMoving = false;
+        redTank.Move(false);
     }
 
     public override void YellowButtonDown()
     {
         yellowTank.Shoot();
-        yellowTank.rotateDirection = !yellowTank.rotateDirection;
+        yellowTank.SwitchRotateDirection();
     }
 
     public override void YellowButtonPressed()
     {
-        yellowTank.isMoving = true;
+        yellowTank.Move(true);
     }
 
     public override void YellowButtonUp()
     {
-        yellowTank.isMoving = false;
+        yellowTank.Move(false);
     }
     #endregion
     
