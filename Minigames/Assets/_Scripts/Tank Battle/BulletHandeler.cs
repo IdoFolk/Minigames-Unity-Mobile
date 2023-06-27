@@ -29,11 +29,13 @@ public class BulletHandeler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<TankHandeler>().tankColor != bulletColor)
+            PlayerColor tankColor = collision.gameObject.GetComponent<TankHandeler>().tankColor;
+            if (tankColor != bulletColor)
             {
-                TankBattleGameManager.instance.AddToScore(bulletColor);
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
+                TankBattleGameManager.Instance.AddToScore(bulletColor);
+                TankBattleGameManager.Instance.RemoveTank(tankColor);
             }
         }
         if (collision.gameObject.CompareTag("Wall"))

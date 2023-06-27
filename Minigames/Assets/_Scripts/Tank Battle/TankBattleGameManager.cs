@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class TankBattleGameManager : MonoBehaviour
 {
-    public static TankBattleGameManager instance;
+    public static TankBattleGameManager Instance;
 
     public int blueTankScore;
     public int greenTankScore;
     public int redTankScore;
     public int yellowTankScore;
 
+    public List<GameObject> TanksAlive = new List<GameObject>();
+
     [SerializeField] HUDManager hudManager;
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
+    }
+    private void Update()
+    {
+        CheckTanksAlive();
     }
     public void AddToScore(PlayerColor bulletColor)
     {
@@ -42,8 +48,26 @@ public class TankBattleGameManager : MonoBehaviour
         }
         hudManager.ChangeScore();
     }
+    public void RemoveTank(PlayerColor tankColor)
+    {
+        foreach (var tank in TanksAlive)
+        {
+            if (tank.GetComponent<TankHandeler>().tankColor == tankColor)
+            {
+                TanksAlive.Remove(tank);
+                return;
+            }
+        }
+    }
+    public void CheckTanksAlive()
+    {
+        if (TanksAlive.Count == 1)
+        {
+            EndGame();
+        }
+    }
     public void EndGame()
     {
-
+        
     }
 }

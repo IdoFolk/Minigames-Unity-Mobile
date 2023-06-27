@@ -12,9 +12,9 @@ public class HUDManager : MonoBehaviour
 
     public void ChangeScore()
     {
-        yellowScore.text = TankBattleGameManager.instance.yellowTankScore.ToString();
-        redScore.text = TankBattleGameManager.instance.redTankScore.ToString();
-        blueScore.text = TankBattleGameManager.instance.blueTankScore.ToString();
-        greenScore.text = TankBattleGameManager.instance.greenTankScore.ToString();
+        yellowScore.text = TankBattleGameManager.Instance.yellowTankScore.ToString();
+        redScore.text = TankBattleGameManager.Instance.redTankScore.ToString();
+        blueScore.text = TankBattleGameManager.Instance.blueTankScore.ToString();
+        greenScore.text = TankBattleGameManager.Instance.greenTankScore.ToString();
     }
 }
