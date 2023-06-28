@@ -17,7 +17,7 @@ public class PackageSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PackageGameManager.Instance.isGamePaused) return;
+        if(MiniGameManager.IsPaused) return;
         if(Time.time >= NextSpawnTime)
         {
             PlacePackageOnRandomSpot();

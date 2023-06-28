@@ -29,7 +29,7 @@ public class PlayerShipHandeler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PackageGameManager.Instance.isGamePaused) return;
+        if (MiniGameManager.IsPaused) return;
         PlayerActorRB.AddRelativeForce(new Vector2(0, 1 * MovmentSpeed * Time.deltaTime));
         PlayerScoreCount.SetText(Score.ToString());
         KeepPlayerOnScreen();

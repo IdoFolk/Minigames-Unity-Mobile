@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PackageGameManager : MiniGameManager
 {
     [SerializeField] GameObject PauseMenu;
+    [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject WinScreen;
     [SerializeField] TMP_Text MiniGameWinnerText;
     [SerializeField] ParticleSystem BackgroundStars;
@@ -20,7 +21,6 @@ public class PackageGameManager : MiniGameManager
     [SerializeField] PlayerShipHandeler GreenPlayer;
     
     public static PackageGameManager Instance;
-    public bool isGamePaused = true;
 
     private int TopScore;
 
@@ -28,8 +28,10 @@ public class PackageGameManager : MiniGameManager
     // Start is called before the first frame update
     void Start()
     {
+        IsPaused = true;
         Instance = new();
         BackgroundStars.Pause();
+        PauseButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,20 +41,24 @@ public class PackageGameManager : MiniGameManager
     }
     public override void StartScene()
     {
-        PackageGameManager.Instance.isGamePaused = false;
+        MiniGameManager.IsPaused = false;
         BackgroundStars.Play();
+        PauseButton.SetActive(true);
     }
-    public void ActivatePauseButton()
+    public void OnApplicationPause(bool pause)
     {
-        PackageGameManager.Instance.isGamePaused = true;
-        PauseMenu.SetActive(true);
-        BackgroundStars.Pause();
-    }
-    public void DeactivatePauseButton()
-    {
-        PackageGameManager.Instance.isGamePaused = false;
-        PauseMenu.SetActive(false);
-        BackgroundStars.Play();
+        if (pause)
+        {
+            MiniGameManager.instace.Pause();
+            BackgroundStars.Pause();
+        }
+        else
+        {
+            MiniGameManager.instace.Continue();
+            BackgroundStars.Play();
+        }
+        PauseButton.SetActive(!pause);
+        PauseMenu.SetActive(pause);
     }
     public TMP_Text WinnerText(string player)
     {
@@ -91,7 +97,7 @@ public class PackageGameManager : MiniGameManager
     }
     public void ActivateWinScreen()
     {
-        PackageGameManager.Instance.isGamePaused = true;
+        MiniGameManager.IsPaused = true;
         WinScreen.SetActive(true);
         BackgroundStars.Pause();
     }

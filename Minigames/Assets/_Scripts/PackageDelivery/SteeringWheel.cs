@@ -20,7 +20,7 @@ public class SteeringWheel : MonoBehaviour
     void Update()
     {
 
-        if (PackageGameManager.Instance.isGamePaused) return;
+        if (MiniGameManager.IsPaused) return;
         // PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
         PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
         RotateSteeringWheel();
