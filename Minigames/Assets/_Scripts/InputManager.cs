@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
+
+    [SerializeField] GameObject pauseMenu;
     /*public Button button;
     static List<Touch>[] Touches = new List<Touch>[4];
 
@@ -100,4 +104,19 @@ public class InputManager : MonoBehaviour
         if (blue_Touch) { MiniGameManager.instace.BlueButtonPressed(); }
     }
 
+    public void OnApplicationPause(bool pause)
+    {
+        if (pause) { MiniGameManager.instace.Pause(); }
+        else MiniGameManager.instace.Continue();
+        pauseMenu.SetActive(pause);
+        Debug.Log(pause);
+    }
+    public void ExitGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(gameObject.scene.buildIndex);
+    }
 }

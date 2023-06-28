@@ -5,6 +5,16 @@ using UnityEngine;
 public abstract class MiniGameManager : MonoBehaviour
 {
     public static MiniGameManager instace;
+    public static bool IsPaused = true;
+
+    public virtual void Pause()
+    {
+        IsPaused = true;
+    }
+    public virtual void Continue()
+    {
+        IsPaused = false;
+    }
     public virtual void StartScene()
     {
         Debug.Log("Here You Put what starts your scene for The Countdown");

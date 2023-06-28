@@ -7,7 +7,7 @@ public class ObstacleScript : MonoBehaviour
     [SerializeField] float speed;
     private void Update()
     {
-        if (FlappyBirdMiniGameManager.isPaused) return;
+        if (FlappyBirdMiniGameManager.IsPaused) return;
         transform.Translate(Vector3.left * Time.deltaTime*speed);
     }
     private void OnBecameInvisible()

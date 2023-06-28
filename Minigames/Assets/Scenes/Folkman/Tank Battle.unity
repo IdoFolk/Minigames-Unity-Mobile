@@ -396,10 +396,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80002663}
     m_Modifications:
-    - target: {fileID: 1007085983, guid: 1008ef078e876a240952720243da00a6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 440042732}
     - target: {fileID: 5367763832656917442, guid: 1008ef078e876a240952720243da00a6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1000,14 +996,12 @@ MonoBehaviour:
   greenTankScore: 0
   redTankScore: 0
   yellowTankScore: 0
-  GamePaused: 0
   TanksAlive:
   - {fileID: 947941489}
   - {fileID: 1171545101}
   - {fileID: 2064473391}
   - {fileID: 142001060}
   hudManager: {fileID: 2132260125}
-  pauseMenu: {fileID: 1660583585}
   winnerScreen: {fileID: 290054266}
   winnerTitle: {fileID: 780770116}
 --- !u!4 &469310847 stripped
@@ -9447,11 +9441,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612962556}
   m_CullTransparentMesh: 0
---- !u!1 &1660583585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1867783297389990801, guid: 45fdcbbf49987e141a5a38fde2a7d44f, type: 3}
-  m_PrefabInstance: {fileID: 1867783296825224496}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1660583586 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1867783297389990802, guid: 45fdcbbf49987e141a5a38fde2a7d44f, type: 3}

@@ -12,12 +12,10 @@ public class TankBattleGameManager : MonoBehaviour
     public int greenTankScore;
     public int redTankScore;
     public int yellowTankScore;
-    public bool GamePaused;
 
     public List<GameObject> TanksAlive = new List<GameObject>();
 
     [SerializeField] HUDManager hudManager;
-    [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winnerScreen;
     [SerializeField] TextMeshProUGUI winnerTitle;
     private void Awake()
@@ -74,22 +72,9 @@ public class TankBattleGameManager : MonoBehaviour
     }
     public void EndGame(GameObject winnerTank)
     {
-        GamePaused = true;
+        MiniGameManager.IsPaused = true;
         winnerTitle.SetText(winnerTank.GetComponent<TankHandeler>().tankColor.ToString() + " Wins!");
         winnerScreen.SetActive(true);
     }
-    public void PauseGame()
-    {
-        if (GamePaused) return;
-        pauseMenu.SetActive(true);
-        GamePaused = true;
-    }
-    public void RestartGame()
-    {
-        SceneManager.LoadScene("Tank Battle");
-    }
-    public void ExitGame()
-    {
-        SceneManager.LoadScene(0);
-    }
+   
 }
