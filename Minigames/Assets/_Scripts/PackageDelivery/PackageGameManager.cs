@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PackageGameManager : MiniGameManager
 {
-    [SerializeField] public GameObject PauseMenu;
-    [SerializeField] public GameObject WinScreen;
-    [SerializeField] public TMP_Text MiniGameWinnerText;
-    [SerializeField] public ParticleSystem BackgroundStars;
-    [SerializeField] public int NumberToWin;
+    [SerializeField] GameObject PauseMenu;
+    [SerializeField] GameObject WinScreen;
+    [SerializeField] TMP_Text MiniGameWinnerText;
+    [SerializeField] ParticleSystem BackgroundStars;
+    [SerializeField] int NumberToWin;
 
 
     [Header("Players")]
@@ -48,6 +48,12 @@ public class PackageGameManager : MiniGameManager
         PauseMenu.SetActive(true);
         BackgroundStars.Pause();
     }
+    public void DeactivatePauseButton()
+    {
+        PackageGameManager.Instance.isGamePaused = false;
+        PauseMenu.SetActive(false);
+        BackgroundStars.Play();
+    }
     public TMP_Text WinnerText(string player)
     {
          MiniGameWinnerText.text = $"{player} Won";
@@ -79,10 +85,7 @@ public class PackageGameManager : MiniGameManager
             ActivateWinScreen();
             return;
         }
-        else
-        {
-            Debug.Log("Error WTF IS GOING ON");
-        }
+        
           
 
     }

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PackagePooling : MonoBehaviour
 {
-    [SerializeField] public GameObject PackagePrefab;
-    [SerializeField] public int PackageCount;
+    [SerializeField] GameObject PackagePrefab;
+    [SerializeField] int PackageCount;
 
     public static PackagePooling PoolingInstance;
 

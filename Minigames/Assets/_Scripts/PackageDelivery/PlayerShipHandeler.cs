@@ -6,21 +6,24 @@ using UnityEngine;
 
 public class PlayerShipHandeler : MonoBehaviour
 {
-    [SerializeField] public Rigidbody2D PlayerActorRB;
-    [SerializeField] public GameObject PackageOnPlayer;
-    [SerializeField] public GameObject Base;
-    [SerializeField] public float MovmentSpeed;
-    [SerializeField] public float KnockbackForce;
-
+    [SerializeField] Rigidbody2D PlayerActorRB;
+    [SerializeField] GameObject PackageOnPlayer;
+    [SerializeField] GameObject Base;
+    [SerializeField] float MovmentSpeed;
+    [SerializeField] float KnockbackForce;
     [SerializeField] TMP_Text PlayerScoreCount;
-    [SerializeField] public int Score;
-    
-    public bool _isPackageOnPlayer;
+    [SerializeField] GameObject[] PackagesOnBase = new GameObject[4];
+
+    public int Score;
+    public bool isPackageOnPlayer;
+
+    private int index = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         Score = 0;
-        
+
     }
 
     // Update is called once per frame
@@ -57,18 +60,25 @@ public class PlayerShipHandeler : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Package" && !_isPackageOnPlayer)
+        if (collision.tag == "Package" && !isPackageOnPlayer)
         {
             Debug.Log("Picked Up Package");
-            _isPackageOnPlayer = true;
+            isPackageOnPlayer = true;
             PackageOnPlayer.SetActive(true);
             collision.gameObject.SetActive(false);
         }
-        if (collision.gameObject == Base && _isPackageOnPlayer)
+        if (collision.gameObject == Base && isPackageOnPlayer)
         {
+
             Debug.Log("Reached The Base");
-            _isPackageOnPlayer = false;
+            isPackageOnPlayer = false;
             Score++;
+            PackagesOnBase[index].SetActive(true);
+            index++;
+            if (index > Score)
+            {
+                index = Score;
+            }
             PackageOnPlayer.SetActive(false);
 
 
@@ -78,14 +88,15 @@ public class PlayerShipHandeler : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
+            Debug.Log("Bruh");
             Vector2 direction = (collision.rigidbody.velocity - PlayerActorRB.velocity);
-            Vector2 knockBack = direction * KnockbackForce;
-            collision.rigidbody.AddForce(knockBack);
-            if (!collision.gameObject.GetComponent<PlayerShipHandeler>()._isPackageOnPlayer) return;
-            if (_isPackageOnPlayer) return;
+            Vector2 knockBack = direction * KnockbackForce * Time.deltaTime;
+            collision.rigidbody.AddForce(knockBack,ForceMode2D.Impulse);
+            if (!collision.gameObject.GetComponent<PlayerShipHandeler>().isPackageOnPlayer) return;
+            if (isPackageOnPlayer) return;
             PackageOnPlayer.SetActive(true);
-            _isPackageOnPlayer = true;
-            collision.gameObject.GetComponent<PlayerShipHandeler>()._isPackageOnPlayer = false;
+            isPackageOnPlayer = true;
+            collision.gameObject.GetComponent<PlayerShipHandeler>().isPackageOnPlayer = false;
             collision.gameObject.GetComponent<PlayerShipHandeler>().PackageOnPlayer.SetActive(false);
         }
     }

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PackageSpawner : MonoBehaviour
 {
-    [SerializeField] public RectTransform SpawnAreaRectTrans;
-    [SerializeField] public float SpawnerTimer;
+    [SerializeField] RectTransform SpawnAreaRectTrans;
+    [SerializeField] float SpawnerTimer;
     private float NextSpawnTime = 0f;
     // Start is called before the first frame update
     void Start()
