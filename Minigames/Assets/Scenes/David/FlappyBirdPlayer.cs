@@ -8,7 +8,7 @@ public class FlappyBirdPlayer : MonoBehaviour
 
     public void Thrust()
     {
-        if (FlappyBirdMiniGameManager.isPaused) return;
+        if (FlappyBirdMiniGameManager.IsPaused) return;
         body.velocity = Vector2.up * 7;
     }
     public void ActivateBody()

@@ -19,15 +19,13 @@ public class FlappyBirdMiniGameManager : MiniGameManager
 
     public ObstaclePullManager ObstaclePullManager;
 
-    static public bool isPaused = true;
-
     public int SpawnRate = 1;
     float timeAtLastSpawn = 5;
 
     #region Start Scene
     public override void StartScene()
     {
-        isPaused = false;
+        IsPaused = false;
         Blue.ActivateBody();
         Green.ActivateBody();
         Red.ActivateBody();
@@ -40,6 +38,22 @@ public class FlappyBirdMiniGameManager : MiniGameManager
 
     #region PlayerActions
 
+    public override void Continue()
+    {
+        base.Continue();
+        Blue.Pause(true);
+        Green.Pause(true);
+        Yellow.Pause(true);
+        Red.Pause(true);
+    }
+    public override void Pause()
+    {
+        base.Pause();
+        Blue.Pause(false);
+        Green.Pause(false);
+        Yellow.Pause(false);
+        Red.Pause(false);
+    }
     public override void BlueButtonDown()
     {
         Blue.Thrust();
@@ -64,12 +78,12 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     #region MapGeneration
     private void Update()
     {
-        if (Time.timeSinceLevelLoad - timeAtLastSpawn >= SpawnRate&&!isPaused)
+        if (Time.timeSinceLevelLoad - timeAtLastSpawn >= SpawnRate&&!IsPaused)
         {
             timeAtLastSpawn = Time.timeSinceLevelLoad;
             ObstaclePullManager.Spawn();
         }
-        if (isPaused) return;
+        if (IsPaused) return;
         for (int i = 0; i < Paralaxes.Count;i++)
         {
             Paralaxes[i].uvRect = new Rect(Paralaxes[i].uvRect.x + ParalaxSpeed[i]*Time.deltaTime, Paralaxes[i].uvRect.y, Paralaxes[i].uvRect.width, Paralaxes[i].uvRect.height);
@@ -113,7 +127,7 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     public void OpenEndMenu()
     {
         EndGameUI.SetActive(true);
-        isPaused = true;
+        IsPaused = true;
         Blue.Pause(false);
         Green.Pause(false);
         Yellow.Pause(false);
