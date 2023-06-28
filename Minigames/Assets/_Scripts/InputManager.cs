@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
 {
 
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject pauseButton;
     /*public Button button;
     static List<Touch>[] Touches = new List<Touch>[4];
 
@@ -110,6 +111,11 @@ public class InputManager : MonoBehaviour
         else MiniGameManager.instace.Continue();
         pauseMenu.SetActive(pause);
         Debug.Log(pause);
+        pauseButton.SetActive(!pause);
+    }
+    private void Start()
+    {
+        if (MiniGameManager.IsPaused) pauseButton.SetActive(false);
     }
     public void ExitGame()
     {
