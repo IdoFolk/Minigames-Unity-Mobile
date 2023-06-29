@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayMenuManager : MonoBehaviour
 {
+    [SerializeField] GameObject mainMenu;
     public void PlayTankBattle()
     {
         SceneManager.LoadScene(1);
@@ -21,9 +22,9 @@ public class PlayMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
-    public void PlayTournament()
+    public void BackButton()
     {
-        int rand = Random.Range(1, 5);
-        SceneManager.LoadScene(rand);
+        gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
     }
 }

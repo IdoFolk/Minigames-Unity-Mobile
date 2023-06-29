@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5551476980032802411}
   - component: {fileID: 491347479736614360}
   - component: {fileID: 8078780602223379505}
+  - component: {fileID: 7759234173455893251}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Barrel
@@ -123,3 +124,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7759234173455893251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320207474379314879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055897106b9d4394db10541e868f48c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 3078375772573340962, guid: 23b9e5fa90ac71b478eaa25750cc31f3, type: 3}

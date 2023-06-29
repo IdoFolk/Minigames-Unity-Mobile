@@ -10120,6 +10120,10 @@ PrefabInstance:
       propertyPath: PlayerActorRB
       value: 
       objectReference: {fileID: 2064473393}
+    - target: {fileID: 9142478910145255417, guid: 3085853c82e6fa846bcc526aed744108, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 3078375772573340962, guid: 043be4332c6bd374e980857a83852c51, type: 3}
     - target: {fileID: 9142478910145255419, guid: 3085853c82e6fa846bcc526aed744108, type: 3}
       propertyPath: m_Name
       value: Green Tank
@@ -10189,6 +10193,10 @@ PrefabInstance:
       propertyPath: PlayerActorRB
       value: 
       objectReference: {fileID: 947941491}
+    - target: {fileID: 5410729776015394327, guid: 7910a9446990d344ea5e0b00475149ec, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 3078375772573340962, guid: 043be4332c6bd374e980857a83852c51, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7910a9446990d344ea5e0b00475149ec, type: 3}
 --- !u!1001 &6151915775867735461
@@ -10246,6 +10254,10 @@ PrefabInstance:
       propertyPath: PlayerActorRB
       value: 
       objectReference: {fileID: 1108191958}
+    - target: {fileID: 2811568953379637645, guid: 8371006edd1ab264fb784baaf2bf1840, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 3078375772573340962, guid: 043be4332c6bd374e980857a83852c51, type: 3}
     - target: {fileID: 2811568953379637647, guid: 8371006edd1ab264fb784baaf2bf1840, type: 3}
       propertyPath: m_Name
       value: Red Tank
@@ -10263,6 +10275,10 @@ PrefabInstance:
       propertyPath: PlayerActorRB
       value: 
       objectReference: {fileID: 1171545103}
+    - target: {fileID: 6026064507160743540, guid: b19eca68b8edf014b82ca5e71b7e2e23, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 3078375772573340962, guid: 043be4332c6bd374e980857a83852c51, type: 3}
     - target: {fileID: 6026064507160743541, guid: b19eca68b8edf014b82ca5e71b7e2e23, type: 3}
       propertyPath: m_RootOrder
       value: 1

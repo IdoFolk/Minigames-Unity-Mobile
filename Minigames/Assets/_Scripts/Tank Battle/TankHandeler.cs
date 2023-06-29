@@ -10,6 +10,7 @@ public class TankHandeler : MonoBehaviour
 
     [SerializeField] float rotationSpeed;
     [SerializeField] float moveSpeed;
+    [SerializeField] GameObject explosionPrefab;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Rigidbody2D PlayerActorRB;
 
@@ -20,6 +21,10 @@ public class TankHandeler : MonoBehaviour
     private void FixedUpdate()
     {
         MovementHandeler();
+    }
+    private void OnDestroy()
+    {
+        Instantiate(explosionPrefab,transform.position,Quaternion.identity);
     }
     public void Shoot()
     {

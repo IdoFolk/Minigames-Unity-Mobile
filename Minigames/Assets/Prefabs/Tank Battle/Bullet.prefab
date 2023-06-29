@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  explosionPrefab: {fileID: 3078375772573340962, guid: 043be4332c6bd374e980857a83852c51, type: 3}
   bulletColor: 0
 --- !u!70 &3753777165072179111
 CapsuleCollider2D:
