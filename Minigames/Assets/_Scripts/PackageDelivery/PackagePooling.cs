@@ -27,11 +27,6 @@ public class PackagePooling : MonoBehaviour
             _packagePool.Add(gameObject);
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public GameObject PullFromPackagePool()
     {

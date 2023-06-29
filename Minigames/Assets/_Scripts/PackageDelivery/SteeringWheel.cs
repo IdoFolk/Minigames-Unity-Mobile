@@ -37,7 +37,7 @@ public class SteeringWheel : MonoBehaviour
         {
             //Debug.Log(rotationAmount);
             //PlayerWheelRigidBody.transform.eulerAngles = new Vector3(0, 0, rotationAmount);
-            Quaternion TargetRot = Quaternion.Euler(PlayerWheelRigidBody.transform.eulerAngles = new Vector3(0, 0, angle));
+            Quaternion TargetRot = Quaternion.Euler(PlayerWheelRigidBody.transform.eulerAngles = new Vector3(0, 0, angle - 90));
             Quaternion.Lerp(PlayerWheelRigidBody.transform.rotation, TargetRot, RotateSpeed * Time.deltaTime);
         }
     }
