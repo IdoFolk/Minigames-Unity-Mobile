@@ -22,7 +22,6 @@ public class PackageGameManager : MiniGameManager
     [SerializeField] PlayerShipHandeler GreenPlayer;
     
     public static PackageGameManager Instance;
-    public static PackageSoundManager SoundManagerInstance;
     private int TopScore;
 
 
@@ -116,6 +115,7 @@ public class PackageGameManager : MiniGameManager
         MiniGameManager.IsPaused = true;
         WinScreen.SetActive(true);
         BackgroundStars.Pause();
+
     }
     public void Restart()
     {

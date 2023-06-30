@@ -5,16 +5,17 @@ using UnityEngine.Audio;
 
 public class PackageSoundManager : MonoBehaviour
 {
-    [SerializeField] AudioSource MainMusic;
-    [SerializeField] AudioSource PickUpSound;
-    [SerializeField] AudioSource ReturnToBaseSound;
-    [SerializeField] AudioSource LaunchRocketSound;
-    [SerializeField] AudioSource CollisionSound;
-    
+    public AudioSource MainMusic;
+    public AudioSource PickUpSound;
+    public AudioSource ReturnToBaseSound;
+    public AudioSource CollisionSound;
 
+    public static PackageSoundManager Instance;
+    
+    
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

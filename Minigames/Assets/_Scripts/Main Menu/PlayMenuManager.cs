@@ -7,23 +7,23 @@ public class PlayMenuManager : MonoBehaviour
 {
     public void PlayTankBattle()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
     public void PlayFlappyBirdGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync(2);
     }
     public void PlayCaptureThePackagesGame()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadSceneAsync(3);
     }
     public void PlayTagGame()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadSceneAsync(4);
     }
     public void PlayTournament()
     {
         int rand = Random.Range(1, 5);
-        SceneManager.LoadScene(rand);
+        SceneManager.LoadSceneAsync(rand);
     }
 }
