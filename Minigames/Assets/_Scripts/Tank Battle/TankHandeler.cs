@@ -11,6 +11,8 @@ public class TankHandeler : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] GameObject explosionPrefab;
+    [SerializeField] Transform explosionParent;
+    [SerializeField] Transform bulletParent;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Rigidbody2D PlayerActorRB;
 
@@ -24,12 +26,12 @@ public class TankHandeler : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Instantiate(explosionPrefab,transform.position,Quaternion.identity);
+        Instantiate(explosionPrefab,transform.position,Quaternion.identity,explosionParent);
     }
     public void Shoot()
     {
         if (MiniGameManager.IsPaused) return;
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation, bulletParent);
         bullet.GetComponent<BulletHandeler>().bulletColor = tankColor;
     }
     public void Move(bool state)

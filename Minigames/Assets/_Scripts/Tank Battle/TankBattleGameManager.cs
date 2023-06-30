@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class TankBattleGameManager : MonoBehaviour
+public class TankBattleGameManager : MiniGameManager
 {
     public static TankBattleGameManager Instance;
 
@@ -15,6 +15,8 @@ public class TankBattleGameManager : MonoBehaviour
 
     public List<GameObject> TanksAlive = new List<GameObject>();
 
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject pauseButton;
     [SerializeField] HUDManager hudManager;
     [SerializeField] GameObject winnerScreen;
     [SerializeField] TextMeshProUGUI winnerTitle;
@@ -29,9 +31,32 @@ public class TankBattleGameManager : MonoBehaviour
             Instance = this;
         }
     }
+    private void Start()
+    {
+        IsPaused = true;
+        pauseButton.SetActive(false);
+    }
+    public override void StartScene()
+    {
+        MiniGameManager.IsPaused = false;
+        pauseButton.SetActive(true);
+    }
     private void Update()
     {
         CheckTanksAlive();
+    }
+    public void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            MiniGameManager.instace.Pause();
+        }
+        else
+        {
+            MiniGameManager.instace.Continue();
+        }
+        pauseButton.SetActive(!pause);
+        pauseMenu.SetActive(pause);
     }
     public void AddToScore(PlayerColor bulletColor)
     {
