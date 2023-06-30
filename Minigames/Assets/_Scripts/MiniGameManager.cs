@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class MiniGameManager : MonoBehaviour
 {
+
     public static MiniGameManager instace;
     public static bool IsPaused = true;
 
