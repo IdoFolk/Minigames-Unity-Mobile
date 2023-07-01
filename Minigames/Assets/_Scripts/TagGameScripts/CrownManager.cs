@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CrownManager : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+
+    public AudioSource touchCrown;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -13,6 +15,12 @@ public class CrownManager : MonoBehaviour
 
             // Rotate the collided object to match its parent's rotation
             collision.transform.rotation = transform.rotation;
+
+            touchCrown.Play();
         }
     }
 }
+
+
+
+

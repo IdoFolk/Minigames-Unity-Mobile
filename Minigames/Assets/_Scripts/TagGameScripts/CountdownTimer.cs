@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public List<IdoPlayer> players; // List of player scripts
+    public List<TagGameManager> players; // List of player scripts
     public GameObject crown; // Reference to the crown GameObject
 
     float currentTime = 0f;
@@ -33,8 +33,8 @@ public class CountdownTimer : MonoBehaviour
 
     private void DetermineWinner()
     {
-        IdoPlayer winningPlayer = null;
-        foreach (IdoPlayer player in players)
+        TagGameManager winningPlayer = null;
+        foreach (TagGameManager player in players)
         {
             if (crown.transform.parent == player.transform)
             {

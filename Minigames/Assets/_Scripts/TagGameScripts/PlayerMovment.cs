@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovment : MiniGameManager
 {
-    [SerializeField] IdoPlayer Blue;
-    [SerializeField] IdoPlayer Green;
-    [SerializeField] IdoPlayer Red;
-    [SerializeField] IdoPlayer Yellow;
+    [SerializeField] TagGameManager Blue;
+    [SerializeField] TagGameManager Green;
+    [SerializeField] TagGameManager Red;
+    [SerializeField] TagGameManager Yellow;
 
     
     float m_Speed;
