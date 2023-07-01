@@ -5,7 +5,12 @@ using UnityEngine;
 public class FlappyBirdPlayer : MonoBehaviour
 {
     [SerializeField] Rigidbody2D body;
+    [SerializeField] int playerValue; //Numbers 2,3,5,7
 
+    private void Start()
+    {
+        FlappyBirdMiniGameManager.winValue *= playerValue;
+    }
     public void Thrust()
     {
         if (FlappyBirdMiniGameManager.IsPaused) return;
@@ -22,6 +27,7 @@ public class FlappyBirdPlayer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         gameObject.SetActive(false);
+        FlappyBirdMiniGameManager.winValue /= playerValue;
         ((FlappyBirdMiniGameManager)MiniGameManager.instace).CheckPlayers();
     }
     public void Pause(bool pause)

@@ -83,7 +83,7 @@ public abstract class MiniGameManager : MonoBehaviour
         Debug.Log("Blue button is unpressed in this frame");
     }
     #endregion
-    private void Awake()
+    protected virtual void Awake()
     {
         instace = this;
     }

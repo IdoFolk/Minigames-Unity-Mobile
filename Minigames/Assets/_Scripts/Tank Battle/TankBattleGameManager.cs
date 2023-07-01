@@ -99,6 +99,8 @@ public class TankBattleGameManager : MiniGameManager
     {
         MiniGameManager.IsPaused = true;
         winnerTitle.SetText(winnerTank.GetComponent<TankHandeler>().tankColor.ToString() + " Wins!");
+        RemoveTank(winnerTank.GetComponent<TankHandeler>().tankColor);
+        Destroy(winnerTank);
         winnerScreen.SetActive(true);
     }
    

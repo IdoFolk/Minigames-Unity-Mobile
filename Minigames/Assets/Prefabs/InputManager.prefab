@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 8706118621967214321}
+  pauseButton: {fileID: 0}
 --- !u!1 &5367763833432787218
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5367763832656917443}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: OnApplicationPause
+        m_MethodName: OnApplicationFocus
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2207,7 +2208,7 @@ PrefabInstance:
       objectReference: {fileID: 5367763832656917443}
     - target: {fileID: 4450751267993016184, guid: aab7d26bd6f661b49aa936e9c80925cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnApplicationPause
+      value: OnApplicationFocus
       objectReference: {fileID: 0}
     - target: {fileID: 4450751267993016184, guid: aab7d26bd6f661b49aa936e9c80925cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

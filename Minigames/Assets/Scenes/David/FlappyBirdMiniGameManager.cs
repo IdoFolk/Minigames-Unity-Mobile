@@ -16,13 +16,20 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     [SerializeField] TMPro.TMP_Text PlayerWon;
     [SerializeField] List<RawImage> Paralaxes;
     [SerializeField] List<float> ParalaxSpeed;
+    [SerializeField] GameObject pauseButton;
 
     public ObstaclePullManager ObstaclePullManager;
 
     public int SpawnRate = 1;
     float timeAtLastSpawn = 5;
+    public static int winValue = 1;
 
     #region Start Scene
+    protected override void Awake()
+    {
+        base.Awake();
+        winValue = 1;
+    }
     public override void StartScene()
     {
         IsPaused = false;
@@ -31,6 +38,7 @@ public class FlappyBirdMiniGameManager : MiniGameManager
         Red.ActivateBody();
         Yellow.ActivateBody();
         timeAtLastSpawn = Time.timeSinceLevelLoad;
+        pauseButton.SetActive(true);
     }
     #endregion
 
@@ -91,29 +99,29 @@ public class FlappyBirdMiniGameManager : MiniGameManager
     }
     public void CheckPlayers()
     {
-        if (Blue.gameObject.active && !(Green.gameObject.active || Red.gameObject.active || Yellow.gameObject.active))
+        Debug.Log(winValue);
+        switch (winValue)
         {
-            PlayerWon.text = "Blue Won";
-            OpenEndMenu();
-            Debug.Log("Blue Won");
-        }
-        else if (Green.gameObject.active && !(Blue.gameObject.active || Red.gameObject.active || Yellow.gameObject.active))
-        {
-            PlayerWon.text = "Green Won";
-            OpenEndMenu();
-            Debug.Log("Green Won");
-        }
-        else if (Yellow.gameObject.active && !(Blue.gameObject.active || Red.gameObject.active || Green.gameObject.active))
-        {
-            PlayerWon.text = "Yellow Won";
-            OpenEndMenu();
-            Debug.Log("Yellow Won");
-        }
-        else if (Red.gameObject.active && !(Blue.gameObject.active || Green.gameObject.active || Yellow.gameObject.active))
-        {
-            PlayerWon.text = "Red Won";
-            OpenEndMenu();
-            Debug.Log("Red Won");
+            case 2:
+                PlayerWon.text = "Blue Won";
+                OpenEndMenu();
+                Debug.Log("Blue Won");
+                break;
+            case 3:
+                PlayerWon.text = "Green Won";
+                OpenEndMenu();
+                Debug.Log("Green Won");
+                break;
+            case 5:
+                PlayerWon.text = "Yellow Won";
+                OpenEndMenu();
+                Debug.Log("Yellow Won");
+                break;
+            case 7:
+                PlayerWon.text = "Red Won";
+                OpenEndMenu();
+                Debug.Log("Red Won");
+                break;
         }
     }
 

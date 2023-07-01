@@ -1600,6 +1600,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5367763832656917443, guid: 1008ef078e876a240952720243da00a6, type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 1887868279}
     - target: {fileID: 5367763832656917446, guid: 1008ef078e876a240952720243da00a6, type: 3}
       propertyPath: m_Name
       value: InputManager
@@ -1726,3 +1730,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1008ef078e876a240952720243da00a6, type: 3}
+--- !u!1 &1887868279 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1007085969, guid: 1008ef078e876a240952720243da00a6, type: 3}
+  m_PrefabInstance: {fileID: 1887868278}
+  m_PrefabAsset: {fileID: 0}

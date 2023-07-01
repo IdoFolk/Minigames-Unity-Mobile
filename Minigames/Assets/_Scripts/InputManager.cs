@@ -104,8 +104,8 @@ public class InputManager : MonoBehaviour
         if (yellow_Touch) { MiniGameManager.instace.YellowButtonPressed(); }
         if (blue_Touch) { MiniGameManager.instace.BlueButtonPressed(); }
     }
-
-    public void OnApplicationPause(bool pause)
+    
+    public void OnApplicationFocus(bool pause)
     {
         if (pause) { MiniGameManager.instace.Pause(); }
         else MiniGameManager.instace.Continue();
