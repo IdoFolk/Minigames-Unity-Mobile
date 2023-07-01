@@ -110,6 +110,7 @@ public class InputManager : MonoBehaviour
         if (pause) { MiniGameManager.instace.Pause(); }
         else MiniGameManager.instace.Continue();
         pauseMenu.SetActive(pause);
+        pauseButton.SetActive(!pause);
         Debug.Log(pause);
         pauseButton.SetActive(!pause);
     }

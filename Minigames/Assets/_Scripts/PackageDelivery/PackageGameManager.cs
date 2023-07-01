@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PackageGameManager : MiniGameManager
 {
+
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject WinScreen;
@@ -21,7 +22,6 @@ public class PackageGameManager : MiniGameManager
     [SerializeField] PlayerShipHandeler GreenPlayer;
     
     public static PackageGameManager Instance;
-
     private int TopScore;
 
 
@@ -45,7 +45,22 @@ public class PackageGameManager : MiniGameManager
         BackgroundStars.Play();
         PauseButton.SetActive(true);
     }
-    public void OnApplicationPause(bool pause)
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            MiniGameManager.instace.Pause();
+            BackgroundStars.Pause();
+        }
+        else
+        {
+            MiniGameManager.instace.Continue();
+            BackgroundStars.Play();
+        }
+        PauseButton.SetActive(focus);
+        PauseMenu.SetActive(!focus);
+    }
+    private void OnApplicationPause(bool pause)
     {
         if (pause)
         {
@@ -100,10 +115,11 @@ public class PackageGameManager : MiniGameManager
         MiniGameManager.IsPaused = true;
         WinScreen.SetActive(true);
         BackgroundStars.Pause();
+
     }
     public void Restart()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(gameObject.scene.buildIndex);
     }
     public void Leave()
     {
