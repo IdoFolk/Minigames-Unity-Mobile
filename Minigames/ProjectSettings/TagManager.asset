@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Crown
+  - Bullet Destroyer
+  - Wall
+  - Undefined
+  - Package
+  - Bullet
+  - Barrel
   layers:
   - Default
   - TransparentFX
@@ -39,8 +44,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BG
-    uniqueID: 989579327
+  - name: BackGround
+    uniqueID: 3994929679
     locked: 0
   - name: Default
     uniqueID: 0
