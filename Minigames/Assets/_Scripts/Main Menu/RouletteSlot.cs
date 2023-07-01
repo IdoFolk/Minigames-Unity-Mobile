@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class RouletteSlot : MonoBehaviour
 {
-    [SerializeField] SceneAsset SceneToLoad;
+    [SerializeField] string SceneToLoad;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        RouletteSpin.SceneToLoad = SceneToLoad.name;
+        Debug.Log(SceneToLoad);
+        RouletteSpin.SceneToLoad = SceneToLoad;
     }
 }
