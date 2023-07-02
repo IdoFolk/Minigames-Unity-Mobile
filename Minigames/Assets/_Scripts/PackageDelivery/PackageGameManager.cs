@@ -86,6 +86,7 @@ public class PackageGameManager : MiniGameManager
         {
             WinnerText("Yellow Player");
             ActivateWinScreen();
+            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Yellow Player", YellowPlayer.Score);
             return;
         }
         else if(RedPlayer.Score == NumberToWin)

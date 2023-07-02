@@ -46,6 +46,7 @@ public class PlayerShipHandeler : MonoBehaviour
 
     private void KeepPlayerOnScreen()
     {
+        if (gameObject == null) return;
         Vector3 newPosition = PlayerActorRB.transform.position;
         Vector3 viewportPosition = Camera.main.WorldToViewportPoint(PlayerActorRB.transform.position);
         if (viewportPosition.x > 1)

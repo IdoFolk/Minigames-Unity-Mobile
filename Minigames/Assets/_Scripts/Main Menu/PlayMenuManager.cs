@@ -5,25 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class PlayMenuManager : MonoBehaviour
 {
+    [SerializeField] GameObject MainMenu;
     public void PlayTankBattle()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
-    public void PlayFlappyBirdGame()
     {
         SceneManager.LoadSceneAsync(2);
     }
-    public void PlayCaptureThePackagesGame()
+    public void PlayFlappyBirdGame()
     {
         SceneManager.LoadSceneAsync(3);
     }
-    public void PlayTagGame()
+    public void PlayCaptureThePackagesGame()
     {
         SceneManager.LoadSceneAsync(4);
     }
+    public void PlayTagGame()
+    {
+        SceneManager.LoadSceneAsync(5);
+    }
+    public void BackButton()
+    {
+        gameObject.SetActive(false);
+        MainMenu.gameObject.SetActive(true);
+    }
     public void PlayTournament()
     {
-        int rand = Random.Range(1, 5);
+        int rand = Random.Range(2, 6);
         SceneManager.LoadSceneAsync(rand);
     }
 }
