@@ -76,5 +76,45 @@ public class CountdownTimer : MonoBehaviour
             Debug.Log("No player has the Crown. It's a draw!");
             // Add your win condition code here
         }
+<<<<<<< Updated upstream
     }
+=======
+
+
+    }
+
+    public TMP_Text WinnerText(string player)
+    {
+        MiniGameWinnerText.text = $"{player} Won";
+        return MiniGameWinnerText;
+    }
+
+    public void ActivateWinScreen()
+    {
+        MiniGameManager.IsPaused = true;
+        WinScreen.SetActive(true);
+
+        // Determine the winning player and set the winner's text
+        TagPlayerManager winningPlayer = null;
+        foreach (TagPlayerManager player in players)
+        {
+            if (crown.transform.parent == player.transform)
+            {
+                winningPlayer = player;
+                break;
+            }
+        }
+
+        if (winningPlayer != null)
+        {
+            MiniGameWinnerText.text = $"{winningPlayer.name} Wins!";
+        }
+        else
+        {
+            MiniGameWinnerText.text = "It's a draw!";
+        }
+    }
+
+
+>>>>>>> Stashed changes
 }

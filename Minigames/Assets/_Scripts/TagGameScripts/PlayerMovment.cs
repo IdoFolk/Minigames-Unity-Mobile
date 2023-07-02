@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class PlayerMovment : MiniGameManager
 {
+<<<<<<< Updated upstream
     [SerializeField] TagGameManager Blue;
     [SerializeField] TagGameManager Green;
     [SerializeField] TagGameManager Red;
     [SerializeField] TagGameManager Yellow;
+=======
+
+    public static PlayerMovment Instance;
+
+    [SerializeField] TagPlayerManager Blue;
+    [SerializeField] TagPlayerManager Green;
+    [SerializeField] TagPlayerManager Red;
+    [SerializeField] TagPlayerManager Yellow;
+>>>>>>> Stashed changes
 
     
     float m_Speed;
