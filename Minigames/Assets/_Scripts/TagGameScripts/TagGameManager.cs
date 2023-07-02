@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+<<<<<<< Updated upstream
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -73,4 +75,12 @@ public void Leave()
 {
     SceneManager.LoadScene(0);
 }
+=======
+using UnityEngine.SceneManagement;
+
+
+public class TagPlayerManager : MonoBehaviour
+{
+
+>>>>>>> Stashed changes
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrownManager : MonoBehaviour
 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     public AudioSource touchCrown;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +21,8 @@ public class CrownManager : MonoBehaviour
             touchCrown.Play();
         }
     }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 }
