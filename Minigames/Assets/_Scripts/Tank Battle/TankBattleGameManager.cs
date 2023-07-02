@@ -38,6 +38,7 @@ public class TankBattleGameManager : MiniGameManager
     }
     public override void StartScene()
     {
+        AdManager.Instance.LoadAd();
         MiniGameManager.IsPaused = false;
         pauseButton.SetActive(true);
     }
@@ -106,6 +107,7 @@ public class TankBattleGameManager : MiniGameManager
         RemoveTank(winnerTank.GetComponent<TankHandeler>().tankColor);
         Destroy(winnerTank);
         winnerScreen.SetActive(true);
+        AdManager.Instance.SetAdButtonActive(true);
     }
    
 }

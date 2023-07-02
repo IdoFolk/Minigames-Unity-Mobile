@@ -33,7 +33,7 @@ public class AdManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
 
         showAdButton.interactable = false;
     }
-    public void SetAddButtonActive(bool state)
+    public void SetAdButtonActive(bool state)
     {
         showAdButton.gameObject.SetActive(state);
     }
@@ -67,8 +67,9 @@ public class AdManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
     {
         if (placementId.Equals(adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
-            Debug.Log("Unity Ads Rewarded Ad Completed");
             SceneManager.LoadScene(1); //load main menu
+            SetAdButtonActive(false);
+            Debug.Log("Unity Ads Rewarded Ad Completed");
         }
     }
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
