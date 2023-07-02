@@ -56,7 +56,7 @@ public class PackageGameManager : MiniGameManager
         PauseButton.SetActive(focus);
         PauseMenu.SetActive(!focus);
     }
-    private void OnApplicationPause(bool pause)
+    public void OnApplicationPause(bool pause)
     {
         if (pause)
         {
@@ -76,6 +76,7 @@ public class PackageGameManager : MiniGameManager
          MiniGameWinnerText.text = $"{player} Won";
         return MiniGameWinnerText;
     }
+
     public void PickWinner()
     {
         if (YellowPlayer.Score == NumberToWin)

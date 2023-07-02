@@ -21,29 +21,25 @@ public class SteeringWheel : MonoBehaviour
     {
 
         if (MiniGameManager.IsPaused) return;
-        // PlayerRigidBody.transform.Translate(0,movingSpeed * Time.deltaTime,0);
         PlayerRigidBody.rotation = PlayerWheelRigidBody.rotation;
         RotateSteeringWheel();
     }
 
 
 
-    private void CalculateRotationForSteeringWheel(int i)
+    private void CalculateRotationForSteeringWheel(int indexOfTouch)
     {
-        Vector2 direction = (Vector2)GetPositionOfInput(i) - (Vector2)PlayerWheelRigidBody.transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - startAngle;
-        //Debug.Log($"Angle BullShit {angle}");
+        Vector2 direction = (Vector2)GetPositionOfInput(indexOfTouch) - PlayerWheelRigidBody.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - startAngle;//direction.y / direction.x
         if (angle < PlayerWheelRigidBody.transform.eulerAngles.z)
         {
-            //Debug.Log(rotationAmount);
-            //PlayerWheelRigidBody.transform.eulerAngles = new Vector3(0, 0, rotationAmount);
             Quaternion TargetRot = Quaternion.Euler(PlayerWheelRigidBody.transform.eulerAngles = new Vector3(0, 0, angle - 90));
             Quaternion.Lerp(PlayerWheelRigidBody.transform.rotation, TargetRot, RotateSpeed * Time.deltaTime);
         }
     }
-    private Vector3 GetPositionOfInput(int i)
+    private Vector3 GetPositionOfInput(int indexOfTouch)
     {
-        Vector2 touchPosition = Input.GetTouch(i).position;
+        Vector2 touchPosition = Input.GetTouch(indexOfTouch).position;
         Vector3 touchWorldPosition = Camera.main.ScreenToWorldPoint(touchPosition);
         touchWorldPosition.z = 0;
         return touchWorldPosition;
@@ -54,21 +50,15 @@ public class SteeringWheel : MonoBehaviour
 
         for (int i = 0; i < Input.touchCount; i++)
         {
-            if (Input.GetTouch(i).phase == TouchPhase.Moved)
+            if (Input.GetTouch(i).phase != TouchPhase.Moved) continue;
+
+            Ray ray = Camera.main.ScreenPointToRay(GetPositionOfInput(i));
+            RaycastHit hit;
+            Collider2D[] colliders = Physics2D.OverlapPointAll(GetPositionOfInput(i));
+            foreach (Collider2D collider in colliders)
             {
-                //Debug.Log($"Touch Position = {touchWorldPosition}");
-                Ray ray = Camera.main.ScreenPointToRay(GetPositionOfInput(i));
-                RaycastHit hit;
-                Collider2D[] colliders = Physics2D.OverlapPointAll(GetPositionOfInput(i));
-                foreach (Collider2D collider in colliders)
-                {
-                    if (collider.CompareTag("Circle"))
-                    {
-                        collider.GetComponent<SteeringWheel>().CalculateRotationForSteeringWheel(i);
-                        //Debug.Log("This is indeed a circle");
-                        break;
-                    }
-                }
+                if (!collider.CompareTag("Circle")) continue;
+                collider.GetComponent<SteeringWheel>().CalculateRotationForSteeringWheel(i);
             }
         }
     }

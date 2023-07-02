@@ -15,6 +15,7 @@ public class PlayerShipHandeler : MonoBehaviour
     [SerializeField] GameObject[] PackagesOnBase = new GameObject[4];
     [SerializeField] TrailRenderer JetTrail;
     [SerializeField] string ShipColor;
+    [SerializeField] Camera MainCamera;
 
     [HideInInspector] public int Score;
 
@@ -23,6 +24,7 @@ public class PlayerShipHandeler : MonoBehaviour
     private int index = 0;
     private void OnBecameInvisible()
     {
+        if (!gameObject.scene.isLoaded) return;
         KeepPlayerOnScreen();
         JetTrail.emitting = false;
     }
@@ -49,7 +51,7 @@ public class PlayerShipHandeler : MonoBehaviour
     {
         if (gameObject == null) return;
         Vector3 newPosition = PlayerActorRB.transform.position;
-        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(PlayerActorRB.transform.position);
+        Vector3 viewportPosition = MainCamera.WorldToViewportPoint(PlayerActorRB.transform.position);
         if (viewportPosition.x > 1)
         {
             newPosition.x = -newPosition.x + 0.1f;
@@ -90,7 +92,7 @@ public class PlayerShipHandeler : MonoBehaviour
             Score++;
             PackagesOnBase[index].SetActive(true);
             index++;
-            AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.HowManyPackages,ShipColor,Score);
+            AnalyticsEvents.CreateEvent(AnalyticsEventTypes.HowManyPackages,ShipColor,Score);
             if (index > Score)
             {
                 index = Score;

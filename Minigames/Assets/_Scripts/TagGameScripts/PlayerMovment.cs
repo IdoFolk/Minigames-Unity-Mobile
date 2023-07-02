@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerMovment : MiniGameManager
 {
-    [SerializeField] IdoPlayer Blue;
-    [SerializeField] IdoPlayer Green;
-    [SerializeField] IdoPlayer Red;
-    [SerializeField] IdoPlayer Yellow;
+
+    public static TagGameManager Instance;
+
+    [SerializeField] TagPlayerManager Blue;
+    [SerializeField] TagPlayerManager Green;
+    [SerializeField] TagPlayerManager Red;
+    [SerializeField] TagPlayerManager Yellow;
 
     
-    float m_Speed;
+    
     #region PlayerActions
-
-
 
     public override void BlueButtonPressed()
     {
