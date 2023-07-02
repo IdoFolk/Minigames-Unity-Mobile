@@ -5,21 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 0115f678fe2ce5043817479c2e6e152e
   - enabled: 1
+=======
+  - enabled: 0
+>>>>>>> parent of bd0326c (Merge branch 'main' into Abadi)
     path: Assets/Scenes/Main Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Folkman/Tank Battle.unity
-    guid: e72903412b4ffe043a5fe5a5f52c85ee
-  - enabled: 1
-    path: Assets/Scenes/David/Flappy Bird.unity
-    guid: 3f9c993a92b92734893218148abe2509
-  - enabled: 1
-    path: Assets/Scenes/Johnny/PackageDelivery.unity
-    guid: 424034b5637670944a2ae553952eead7
   - enabled: 1
     path: Assets/Scenes/Ido/Tag Game.unity
     guid: 2688c427a4dc0df4da8736ce3236fabe

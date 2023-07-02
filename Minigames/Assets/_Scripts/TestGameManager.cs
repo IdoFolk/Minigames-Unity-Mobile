@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class TestGameManager : MiniGameManager
 {
-    public override void BlueButtonPressed()
+    public override void BlueAction()
     {
         Debug.Log("Blue");
     }
 
-    public override void GreenButtonPressed()
+    public override void GreenAction()
     {
         Debug.Log("Green");
     }
 
-    public override void RedButtonPressed()
+    public override void RedAction()
     {
         Debug.Log("Red");
     }
 
-    public override void YellowButtonPressed()
+    public override void YellowAction()
     {
         Debug.Log("Yellow");
     }

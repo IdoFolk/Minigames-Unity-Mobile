@@ -15,24 +15,24 @@ public class PlayerMovment : MiniGameManager
 
 
 
-    public override void BlueButtonPressed()
+    public override void BlueAction()
     {
         Blue.Forward();
 
     }
                
 
-    public override void GreenButtonPressed()
+    public override void GreenAction()
     {
         Green.Forward();
     }
 
-    public override void RedButtonPressed()
+    public override void RedAction()
     {
         Red.Forward();
     }
 
-    public override void YellowButtonPressed()
+    public override void YellowAction()
     {
         Yellow.Forward();
     }
