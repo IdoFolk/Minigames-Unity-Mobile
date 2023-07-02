@@ -64,15 +64,19 @@ public class TankBattleGameManager : MiniGameManager
         {
             case PlayerColor.Blue:
                 blueTankScore += 1;
+                AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.HowManyKills, PlayerColor.Blue.ToString(), blueTankScore);
                 break;
             case PlayerColor.Green:
                 greenTankScore += 1;
+                AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.HowManyKills, PlayerColor.Green.ToString(), greenTankScore);
                 break;
             case PlayerColor.Yellow:
                 yellowTankScore += 1;
+                AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.HowManyKills, PlayerColor.Yellow.ToString(), yellowTankScore);
                 break;
             case PlayerColor.Red:
                 redTankScore += 1;
+                AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.HowManyKills, PlayerColor.Red.ToString(), redTankScore);
                 break;
         }
         hudManager.ChangeScore();

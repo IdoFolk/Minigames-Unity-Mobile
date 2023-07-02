@@ -8,22 +8,22 @@ public class PlayMenuManager : MonoBehaviour
     [SerializeField] GameObject MainMenu;
     public void PlayTankBattle()
     {
-        AnalyticsEvents.instance.WhichGameWasPicked("whichGameWasPicked", "Tank Battles");
+        AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.whichGameWasPicked, null, 0, "Tank Game");
         SceneManager.LoadSceneAsync(2);
     }
     public void PlayFlappyBirdGame()
     {
-        AnalyticsEvents.instance.WhichGameWasPicked("whichGameWasPicked", "Flappy Bird");
+        AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.whichGameWasPicked, null, 0, "Flappy Bird");
         SceneManager.LoadSceneAsync(3);
     }
     public void PlayCaptureThePackagesGame()
     {
-        AnalyticsEvents.instance.WhichGameWasPicked("whichGameWasPicked", "Package Game");
+        AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.whichGameWasPicked, null, 0, "Capture the Pacakges");
         SceneManager.LoadSceneAsync(4);
     }
     public void PlayTagGame()
     {
-        AnalyticsEvents.instance.WhichGameWasPicked("whichGameWasPicked", "Tag Game");
+        AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.whichGameWasPicked, null, 0, "Tag Game");
         SceneManager.LoadSceneAsync(5);
     }
     public void BackButton()

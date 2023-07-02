@@ -14,6 +14,7 @@ public class PlayerShipHandeler : MonoBehaviour
     [SerializeField] TMP_Text PlayerScoreCount;
     [SerializeField] GameObject[] PackagesOnBase = new GameObject[4];
     [SerializeField] TrailRenderer JetTrail;
+    [SerializeField] string ShipColor;
 
     [HideInInspector] public int Score;
 
@@ -89,6 +90,7 @@ public class PlayerShipHandeler : MonoBehaviour
             Score++;
             PackagesOnBase[index].SetActive(true);
             index++;
+            AnalyticsEvents.instance.CreateCustomEvent(AnalyticsEventTypes.HowManyPackages,ShipColor,Score);
             if (index > Score)
             {
                 index = Score;

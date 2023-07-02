@@ -82,14 +82,12 @@ public class PackageGameManager : MiniGameManager
         {
             WinnerText("Yellow Player");
             ActivateWinScreen();
-            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Yellow Player", YellowPlayer.Score);
             return;
         }
         else if(RedPlayer.Score == NumberToWin)
         {
             WinnerText("Red Player");
             ActivateWinScreen();
-            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Red Player", YellowPlayer.Score);
 
             return;
         }
@@ -97,7 +95,6 @@ public class PackageGameManager : MiniGameManager
         {
             WinnerText("Blue Player");
             ActivateWinScreen();
-            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Blue Player", YellowPlayer.Score);
 
             return;
         }
@@ -105,7 +102,6 @@ public class PackageGameManager : MiniGameManager
         {
             WinnerText("Green Player");
             ActivateWinScreen();
-            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Green Player", YellowPlayer.Score);
 
             return;
         }

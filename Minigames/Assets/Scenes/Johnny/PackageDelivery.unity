@@ -1282,6 +1282,7 @@ MonoBehaviour:
   - {fileID: 876212285}
   - {fileID: 670490693}
   JetTrail: {fileID: 750958199}
+  ShipColor: Red Player
   Score: 0
   isPackageOnPlayer: 0
 --- !u!212 &320987659
@@ -2648,6 +2649,7 @@ MonoBehaviour:
   - {fileID: 1176152288}
   - {fileID: 228034870}
   JetTrail: {fileID: 182922582}
+  ShipColor: Yellow Player
   Score: 0
   isPackageOnPlayer: 0
 --- !u!61 &564246946
@@ -2882,7 +2884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da16f17e3cbf3164db77249dd0c7ee4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 572233222}
   PauseButton: {fileID: 1470211599}
   WinScreen: {fileID: 585560358}
   MiniGameWinnerText: {fileID: 2039877212}
@@ -5031,6 +5033,7 @@ MonoBehaviour:
   - {fileID: 530900413}
   - {fileID: 2015281799}
   JetTrail: {fileID: 525909353}
+  ShipColor: Blue Player
   Score: 0
   isPackageOnPlayer: 0
 --- !u!50 &1120202624
@@ -12672,6 +12675,7 @@ MonoBehaviour:
   - {fileID: 1462086442}
   - {fileID: 744894137}
   JetTrail: {fileID: 2077292860}
+  ShipColor: Green Player
   Score: 0
   isPackageOnPlayer: 0
 --- !u!50 &1807682303
