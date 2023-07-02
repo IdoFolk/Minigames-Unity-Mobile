@@ -4,22 +4,18 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-public class CountdownTimer : MiniGameManager
+public class CountdownTimer : MonoBehaviour
 {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 7de5d71 (bug fixes)
     public List<TagGameManager> players; // List of player scripts
 =======
     public List<TagPlayerManager> players; // List of player scripts
 >>>>>>> Stashed changes
     public GameObject crown; // Reference to the crown GameObject
-=======
-    [SerializeField] List<TagPlayerManager> players; // List of player scripts
-    [SerializeField] GameObject crown; // Reference to the crown GameObject
-
-    [SerializeField] GameObject WinScreen;
-    [SerializeField] TMP_Text MiniGameWinnerText;
->>>>>>> Stashed changes
 
     float currentTime = 0f;
     float startingTime = 10f;
@@ -33,7 +29,6 @@ public class CountdownTimer : MiniGameManager
 
     private void Update()
     {
-        if (MiniGameManager.IsPaused) return;
         currentTime -= 1 * Time.deltaTime;
         countdownText.text = currentTime.ToString("0");
 
@@ -46,6 +41,7 @@ public class CountdownTimer : MiniGameManager
 
     private void DetermineWinner()
     {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
         TagGameManager winningPlayer = null;
@@ -58,6 +54,10 @@ public class CountdownTimer : MiniGameManager
         TagPlayerManager winningPlayer = null;
         foreach (TagPlayerManager player in players)
 >>>>>>> Stashed changes
+=======
+        TagGameManager winningPlayer = null;
+        foreach (TagGameManager player in players)
+>>>>>>> parent of 7de5d71 (bug fixes)
         {
             if (crown.transform.parent == player.transform)
             {
@@ -68,7 +68,6 @@ public class CountdownTimer : MiniGameManager
 
         if (winningPlayer != null)
         {
-            ActivateWinScreen();
             Debug.Log("Player " + winningPlayer.name + " with the Crown wins!");
             // Add your win condition code here
         }
@@ -76,40 +75,6 @@ public class CountdownTimer : MiniGameManager
         {
             Debug.Log("No player has the Crown. It's a draw!");
             // Add your win condition code here
-        }
-
-
-    }
-
-    public TMP_Text WinnerText(string player)
-    {
-        MiniGameWinnerText.text = $"{player} Won";
-        return MiniGameWinnerText;
-    }
-
-    public void ActivateWinScreen()
-    {
-        MiniGameManager.IsPaused = true;
-        WinScreen.SetActive(true);
-
-        // Determine the winning player and set the winner's text
-        TagPlayerManager winningPlayer = null;
-        foreach (TagPlayerManager player in players)
-        {
-            if (crown.transform.parent == player.transform)
-            {
-                winningPlayer = player;
-                break;
-            }
-        }
-
-        if (winningPlayer != null)
-        {
-            MiniGameWinnerText.text = $"{winningPlayer.name} Wins!";
-        }
-        else
-        {
-            MiniGameWinnerText.text = "It's a draw!";
         }
     }
 }

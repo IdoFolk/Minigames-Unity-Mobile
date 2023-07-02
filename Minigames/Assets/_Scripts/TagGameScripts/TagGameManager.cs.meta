@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 guid: d19596b8cd62c2b4b96eb0a165887d73
@@ -8,6 +9,9 @@ guid: d4d5bcd3a45cf734e913911b8d09aae3
 =======
 guid: d4d5bcd3a45cf734e913911b8d09aae3
 >>>>>>> Stashed changes
+=======
+guid: 6449bfca1ce62204e8c24ba05a08e78a
+>>>>>>> parent of 7de5d71 (bug fixes)
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerMovment : MiniGameManager
 {
-    [SerializeField] TagPlayerManager Blue;
-    [SerializeField] TagPlayerManager Green;
-    [SerializeField] TagPlayerManager Red;
-    [SerializeField] TagPlayerManager Yellow;
+    [SerializeField] TagGameManager Blue;
+    [SerializeField] TagGameManager Green;
+    [SerializeField] TagGameManager Red;
+    [SerializeField] TagGameManager Yellow;
 
-    private TagGameManager gameManager = TagGameManager.Instance;
-
- 
+    
+    float m_Speed;
     #region PlayerActions
 
 
@@ -19,6 +18,7 @@ public class PlayerMovment : MiniGameManager
     public override void BlueButtonPressed()
     {
         Blue.Forward();
+
     }
                
 

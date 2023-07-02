@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 8706118621967214321}
-  pauseButton: {fileID: 1007085969}
+  pauseButton: {fileID: 0}
 --- !u!1 &5367763833432787218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,10 +2114,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Button
       objectReference: {fileID: 0}
-    - target: {fileID: 4450751267993016182, guid: aab7d26bd6f661b49aa936e9c80925cf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4450751267993016183, guid: aab7d26bd6f661b49aa936e9c80925cf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2227,10 +2223,5 @@ PrefabInstance:
 --- !u!224 &1007085968 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4450751267993016183, guid: aab7d26bd6f661b49aa936e9c80925cf, type: 3}
-  m_PrefabInstance: {fileID: 4450751267120168679}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1007085969 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4450751267993016182, guid: aab7d26bd6f661b49aa936e9c80925cf, type: 3}
   m_PrefabInstance: {fileID: 4450751267120168679}
   m_PrefabAsset: {fileID: 0}

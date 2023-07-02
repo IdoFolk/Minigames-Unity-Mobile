@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CrownManager : MonoBehaviour
 {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 7de5d71 (bug fixes)
 
     public AudioSource touchCrown;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,10 +24,13 @@ public class CrownManager : MonoBehaviour
             touchCrown.Play();
         }
     }
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 7de5d71 (bug fixes)
 }
 
 

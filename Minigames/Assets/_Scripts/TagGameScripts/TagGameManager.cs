@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -10,63 +11,58 @@ public class TagGameManager : MiniGameManager
 { 
 [SerializeField] GameObject PauseMenu;
 [SerializeField] GameObject PauseButton;
+=======
+>>>>>>> parent of 7de5d71 (bug fixes)
 
 
+public class TagGameManager : MonoBehaviour
+{
+    [SerializeField] Rigidbody2D body;
 
-[Header("Players")]
-[SerializeField] TagPlayerManager YellowPlayer;
-[SerializeField] TagPlayerManager RedPlayer;
-[SerializeField] TagPlayerManager BluePlayer;
-[SerializeField] TagPlayerManager GreenPlayer;
+    [SerializeField] float moveSpeed = 7f;
 
-    public static TagGameManager Instance;
+      
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void FixedUpdate()
     {
-        IsPaused = true;
-        Instance = new();
-        PauseButton.SetActive(false);
+        transform.Rotate(0f, 0f, 100 * Time.deltaTime, Space.Self);
+        ScreenWrap();
     }
 
-    public override void StartScene()
-{
-    MiniGameManager.IsPaused = false;
-      PauseButton.SetActive(true);
-}
-private void OnApplicationFocus(bool focus)
-{
-    if (!focus)
+    public void Forward() // cancels rotation and moves forward
     {
-        MiniGameManager.instace.Pause();
-        
+        transform.Rotate(0f, 0f, -100 * Time.deltaTime, Space.Self);
+        transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
     }
-    else
+
+    private void ScreenWrap() // Makes the player appear on the opposite side of the screen
     {
-        MiniGameManager.instace.Continue();
-   
+
+            Vector3 newPosition = body.transform.position;
+            Vector3 viewportPosition = Camera.main.WorldToViewportPoint(body.transform.position);
+            if (viewportPosition.x > 1)
+            {
+                newPosition.x = -newPosition.x + 0.1f;
+            }
+            else if (viewportPosition.x < 0)
+            {
+                newPosition.x = -newPosition.x - 0.1f;
+
+            }
+        if (viewportPosition.y > 1)
+        {
+            newPosition.y = -newPosition.y + 0.1f;
         }
-    PauseButton.SetActive(focus);
-    PauseMenu.SetActive(!focus);
-}
-private void OnApplicationPause(bool pause)
-{
-    if (pause)
-    {
-        MiniGameManager.instace.Pause();
-       
-    }
-    else
-    {
-        MiniGameManager.instace.Continue();
-       
-    }
-    PauseButton.SetActive(!pause);
-    PauseMenu.SetActive(pause);
+        else if (viewportPosition.y < 0)
+        {
+            newPosition.y = -newPosition.y - 0.1f;
+        }
+
+        body.transform.position = newPosition;
+
 }
 
+<<<<<<< HEAD
 public void Restart()
 {
     SceneManager.LoadScene(gameObject.scene.buildIndex);
@@ -83,4 +79,45 @@ public class TagPlayerManager : MonoBehaviour
 {
 
 >>>>>>> Stashed changes
+=======
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Crown")
+        {
+
+            TransferCrownWithDelay(collision.transform, 1.0f); // Change the delay time here
+        }
+    }
+
+    private void TransferCrownWithDelay(Transform crownTransform, float delay)
+    {
+        // Set the player as the parent of the crown
+        crownTransform.SetParent(transform);
+        crownTransform.localPosition = Vector2.zero;
+
+        // Disable collision on the parent object
+        GetComponent<Collider2D>().enabled = false;
+
+        // Disable collision on the child object (crown)
+        crownTransform.GetComponent<Collider2D>().enabled = false;
+
+        StartCoroutine(EnableCrownCollisionWithDelay(crownTransform, delay));
+    }
+
+    private IEnumerator EnableCrownCollisionWithDelay(Transform crownTransform, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Enable collision on the child object (crown)
+        crownTransform.GetComponent<Collider2D>().enabled = true;
+
+        yield return new WaitForSeconds(1.0f); // Wait for 1 second
+
+        // Enable collision on the parent object
+        GetComponent<Collider2D>().enabled = true;
+    }
+
+
+>>>>>>> parent of 7de5d71 (bug fixes)
 }
+
