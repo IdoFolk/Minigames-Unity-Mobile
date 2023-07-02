@@ -23,9 +23,6 @@ public class PackageGameManager : MiniGameManager
     
     public static PackageGameManager Instance;
     private int TopScore;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         IsPaused = true;
@@ -34,7 +31,6 @@ public class PackageGameManager : MiniGameManager
         PauseButton.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         PickWinner();
@@ -93,18 +89,24 @@ public class PackageGameManager : MiniGameManager
         {
             WinnerText("Red Player");
             ActivateWinScreen();
+            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Red Player", YellowPlayer.Score);
+
             return;
         }
         else if(BluePlayer.Score == NumberToWin)
         {
             WinnerText("Blue Player");
             ActivateWinScreen();
+            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Blue Player", YellowPlayer.Score);
+
             return;
         }
         else if(GreenPlayer.Score == NumberToWin)
         {
             WinnerText("Green Player");
             ActivateWinScreen();
+            AnalyticsEvents.instance.WhichPlayerWonTheMost("whichPlayerWonMost", "Green Player", YellowPlayer.Score);
+
             return;
         }
         
