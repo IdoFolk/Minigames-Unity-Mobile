@@ -8,15 +8,16 @@ public class TagPlayerManager : MonoBehaviour
     [SerializeField] Rigidbody2D body;
     float moveSpeed = 7f;
 
-    public void FixedUpdate()
+    public void Update()
     {
+        if (MiniGameManager.IsPaused) return;
         transform.Rotate(0f, 0f, 100 * Time.deltaTime, Space.Self);
         KeepPlayerOnScreen();
     }
 
     public void Forward() // cancels rotation and moves forward
     {
-        if (MiniGameManager.IsPaused) return;
+     
         transform.Rotate(0f, 0f, -100 * Time.deltaTime, Space.Self);
         transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
     }
@@ -50,11 +51,11 @@ public class TagPlayerManager : MonoBehaviour
     {
         if (collision.gameObject.name == "Crown")
         {
-            StartCoroutine(TransferCrownWithDelay(collision.transform, 1.0f)); // Change the delay time here
+            StartCoroutine(TransferCrownWithDelay(collision.transform, 0f, 1f)); // Change the delay time here (e.g., 0.5f)
         }
     }
 
-    private IEnumerator TransferCrownWithDelay(Transform crownTransform, float delay)
+    private IEnumerator TransferCrownWithDelay(Transform crownTransform, float crownDelay, float playerDelay)
     {
         // Set the player as the parent of the crown
         crownTransform.SetParent(transform);
@@ -66,15 +67,15 @@ public class TagPlayerManager : MonoBehaviour
         // Disable collision on the child object (crown)
         crownTransform.GetComponent<Collider2D>().enabled = false;
 
-        yield return new WaitForSeconds(delay); // Wait for the delay
-
-        // Enable collision on the child object (crown)
-        crownTransform.GetComponent<Collider2D>().enabled = true;
-
-        yield return null; // Skip one frame
+        yield return new WaitForSeconds(crownDelay); // Wait for the crown delay
 
         // Enable collision on the parent object
         GetComponent<Collider2D>().enabled = true;
+
+        yield return new WaitForSeconds(playerDelay); // Wait for the player delay
+
+        // Enable collision on the child object (crown)
+        crownTransform.GetComponent<Collider2D>().enabled = true;
     }
 }
 

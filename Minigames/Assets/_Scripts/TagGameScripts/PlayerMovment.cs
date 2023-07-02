@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovment : MiniGameManager
 {
 
-    public static TankBattleGameManager Instance;
+    public static TagGameManager Instance;
 
     [SerializeField] TagPlayerManager Blue;
     [SerializeField] TagPlayerManager Green;
