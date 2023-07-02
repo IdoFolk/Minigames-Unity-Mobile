@@ -13,10 +13,8 @@ public class PlayerMovment : MiniGameManager
     [SerializeField] TagPlayerManager Yellow;
 
     
-    float m_Speed;
+    
     #region PlayerActions
-
-
 
     public override void BlueButtonPressed()
     {

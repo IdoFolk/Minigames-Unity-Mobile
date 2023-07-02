@@ -8,8 +8,10 @@ using UnityEngine.SceneManagement;
 public class CountdownTimer : MiniGameManager
 {
     [SerializeField] List<TagPlayerManager> players; 
-    [SerializeField] GameObject crown; 
+    [SerializeField] GameObject crown;
 
+
+    [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject WinScreen;
     [SerializeField] TMP_Text MiniGameWinnerText;
 
@@ -18,9 +20,19 @@ public class CountdownTimer : MiniGameManager
 
     [SerializeField] TMP_Text countdownText;
 
-    void Start()
+
+    private void Start()
     {
         currentTime = startingTime;
+        IsPaused = true;
+        
+        PauseButton.SetActive(false);
+    }
+    public override void StartScene()
+    {
+        MiniGameManager.IsPaused = false;
+
+        PauseButton.SetActive(true);
     }
 
     private void Update()
@@ -51,13 +63,11 @@ public class CountdownTimer : MiniGameManager
         if (winningPlayer != null)
         {
             ActivateWinScreen();
-            Debug.Log("Player " + winningPlayer.name + " with the Crown wins!");
-            // Add your win condition code here
+
         }
         else
         {
-            Debug.Log("No player has the Crown. It's a draw!");
-            // Add your win condition code here
+            ActivateWinScreen();
         }
 
 

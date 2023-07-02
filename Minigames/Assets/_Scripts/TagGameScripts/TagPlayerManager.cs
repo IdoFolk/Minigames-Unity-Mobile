@@ -17,7 +17,8 @@ public class TagPlayerManager : MonoBehaviour
 
     public void Forward() // cancels rotation and moves forward
     {
-     
+        if (MiniGameManager.IsPaused) return;
+
         transform.Rotate(0f, 0f, -100 * Time.deltaTime, Space.Self);
         transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
     }

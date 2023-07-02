@@ -16,7 +16,7 @@ public class TagGameManager : MiniGameManager
 
     private void Start()
     {
-        IsPaused = true;
+        IsPaused = false;
         Instance = new();
         PauseButton.SetActive(false);
     }
