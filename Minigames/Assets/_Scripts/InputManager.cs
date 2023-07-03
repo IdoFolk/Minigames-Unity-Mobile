@@ -121,6 +121,7 @@ public class InputManager : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene(0);
+        AdManager.Instance.ShowAd();
     }
     public void Restart()
     {

@@ -107,7 +107,6 @@ public class TankBattleGameManager : MiniGameManager
         RemoveTank(winnerTank.GetComponent<TankHandeler>().tankColor);
         Destroy(winnerTank);
         winnerScreen.SetActive(true);
-        AdManager.Instance.SetAdButtonActive(true);
     }
    
 }

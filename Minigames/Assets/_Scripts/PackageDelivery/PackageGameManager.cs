@@ -123,7 +123,6 @@ public class PackageGameManager : MiniGameManager
         WinScreen.SetActive(true);
         BackgroundStars.Pause();
         PackageSoundManager.Instance.MainMusic.PlayOneShot(PackageSoundManager.Instance.WinningMusic, 0.15f);
-        AdManager.Instance.SetAdButtonActive(true);
     }
     public void Restart()
     {
@@ -132,6 +131,7 @@ public class PackageGameManager : MiniGameManager
     public void Leave()
     {
         SceneManager.LoadScene(0);
+        AdManager.Instance.ShowAd();
     }
 }
 

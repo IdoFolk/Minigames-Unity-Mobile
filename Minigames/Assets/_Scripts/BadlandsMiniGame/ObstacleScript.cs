@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleScript : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float[] SpawnHeights = new float[] { -2.5f,2.5f};
     private void Update()
     {
         if (FlappyBirdMiniGameManager.IsPaused) return;
@@ -16,6 +17,6 @@ public class ObstacleScript : MonoBehaviour
     }
     private void OnEnable()
     {
-        transform.localPosition = new Vector3(0,Random.Range(-2.5f,2.5f),0);
+        transform.localPosition = new Vector3(0,SpawnHeights[Random.Range(0,2)],0);
     }
 }

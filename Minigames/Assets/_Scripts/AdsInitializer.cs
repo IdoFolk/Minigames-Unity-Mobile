@@ -7,7 +7,6 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 {
     [SerializeField] string _androidGameId = "5334182";
     [SerializeField] string _iOSGameId = "5334183";
-    [SerializeField] bool _testMode = true;
     private string _gameId;
 
     void Awake()
@@ -26,7 +25,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 #endif
         if (!Advertisement.isInitialized && Advertisement.isSupported)
         {
-            Advertisement.Initialize(_gameId, _testMode, this);
+            Advertisement.Initialize(_gameId, false, this);
         }
     }
 

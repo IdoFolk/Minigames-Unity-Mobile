@@ -9,7 +9,6 @@ public class AdManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
 {
     public static AdManager Instance;
 
-    [SerializeField] Button showAdButton;
     [SerializeField] string androidAdUnitId = "Rewarded_Android";
     [SerializeField] string iOSAdUnitId = "Rewarded_iOS";
     private string adUnitId = null;
@@ -31,13 +30,7 @@ public class AdManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
             DontDestroyOnLoad(gameObject);
         }
 
-        showAdButton.interactable = false;
     }
-    public void SetAdButtonActive(bool state)
-    {
-        showAdButton.gameObject.SetActive(state);
-    }
-
     // Call this public method when you want to get an ad ready to show.
     public void LoadAd()
     {
@@ -47,35 +40,24 @@ public class AdManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
     public void ShowAd()
     {
         // Disable the button:
-        showAdButton.interactable = false;
         // Then show the ad:
         Advertisement.Show(adUnitId, this);
     }
     public void OnUnityAdsAdLoaded(string placementId)
     {
         Debug.Log("Ad Loaded: " + placementId);
-
-        if (placementId.Equals(adUnitId))
-        {
-            // Configure the button to call the ShowAd() method when clicked:
-            showAdButton.onClick.AddListener(ShowAd);
-            // Enable the button for users to click:
-            showAdButton.interactable = true;
-        }
     }
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         if (placementId.Equals(adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             SceneManager.LoadScene(1); //load main menu
-            SetAdButtonActive(false);
             Debug.Log("Unity Ads Rewarded Ad Completed");
         }
     }
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
         Debug.Log($"Failed to load Ad Unit {placementId}: {error.ToString()} - {message}");
-        showAdButton.interactable = true;
 
     }
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
@@ -84,10 +66,5 @@ public class AdManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
     }
     public void OnUnityAdsShowStart(string adUnitId) { }
     public void OnUnityAdsShowClick(string adUnitId) { }
-    void OnDestroy()
-    {
-        // Clean up the button listeners:
-        showAdButton.onClick.RemoveAllListeners();
-    }
 
 }
