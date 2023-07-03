@@ -52,6 +52,27 @@ public class TagGameManager : MiniGameManager
     {
         SceneManager.LoadScene(0);
     }
+    public override void BlueButtonPressed()
+    {
+        Blue.Forward();
+
+    }
+
+
+    public override void GreenButtonPressed()
+    {
+        Green.Forward();
+    }
+
+    public override void RedButtonPressed()
+    {
+        Red.Forward();
+    }
+
+    public override void YellowButtonPressed()
+    {
+        Yellow.Forward();
+    }
 }
   
 

@@ -5,13 +5,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CountdownTimer : MiniGameManager
+public class CountdownTimer : MonoBehaviour
 {
     [SerializeField] List<TagPlayerManager> players; 
     [SerializeField] GameObject crown;
 
 
-    [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject WinScreen;
     [SerializeField] TMP_Text MiniGameWinnerText;
 
@@ -23,16 +22,7 @@ public class CountdownTimer : MiniGameManager
 
     private void Start()
     {
-        currentTime = startingTime;
-        IsPaused = true;
-        
-        PauseButton.SetActive(false);
-    }
-    public override void StartScene()
-    {
-        MiniGameManager.IsPaused = false;
-
-        PauseButton.SetActive(true);
+        currentTime = startingTime;     
     }
 
     private void Update()
