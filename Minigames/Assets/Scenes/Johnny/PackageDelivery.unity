@@ -1583,8 +1583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.7299805, y: -0.34251}
-  m_SizeDelta: {x: 2095.09, y: 1015.3}
+  m_AnchoredPosition: {x: -22.46, y: 8.2773}
+  m_SizeDelta: {x: 1623.42, y: 722.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488459401
 MonoBehaviour:
@@ -3434,6 +3434,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PackageGameManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5231557908880611483, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 2636
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231557908880611483, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5231557908880611484, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
       propertyPath: m_Name
       value: Winner Screen
@@ -3827,10 +3835,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2636, y: 180}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5627,6 +5635,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1300608997780317849, guid: de1645a2ab522f44e835517768c2f908, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300608997780317849, guid: de1645a2ab522f44e835517768c2f908, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 2636
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300608997780317849, guid: de1645a2ab522f44e835517768c2f908, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 1300608997780317850, guid: de1645a2ab522f44e835517768c2f908, type: 3}
       propertyPath: m_Pivot.x
       value: 0
