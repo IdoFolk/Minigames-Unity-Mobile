@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814508366}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e51109b38125ae64bb32cdc57a9f36a6, type: 3}
   m_Name: 
@@ -1953,6 +1953,7 @@ MonoBehaviour:
   PauseButton: {fileID: 4450751267993016182, guid: aab7d26bd6f661b49aa936e9c80925cf, type: 3}
   WinScreen: {fileID: 5231557908880611484, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
   MiniGameWinnerText: {fileID: 0}
+  GameTimer: {fileID: 1814508367}
 --- !u!4 &2040405849
 Transform:
   m_ObjectHideFlags: 0

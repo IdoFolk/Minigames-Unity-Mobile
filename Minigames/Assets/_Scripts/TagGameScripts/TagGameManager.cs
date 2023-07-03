@@ -16,11 +16,12 @@ public class TagGameManager : MiniGameManager
     [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject WinScreen;
     [SerializeField] TMP_Text MiniGameWinnerText;
+    [SerializeField] CountdownTimer GameTimer;
 
-   
+
     private void Start()
     {
-        IsPaused = false;
+        IsPaused = true;
         PauseButton.SetActive(false);
     }
     public override void StartScene()
@@ -28,6 +29,7 @@ public class TagGameManager : MiniGameManager
         MiniGameManager.IsPaused = false;
 
         PauseButton.SetActive(false);
+        GameTimer.enabled = true;
     }
 
     public void OnApplicationPause(bool pause)
@@ -54,28 +56,30 @@ public class TagGameManager : MiniGameManager
     }
     public override void BlueButtonPressed()
     {
+        if (IsPaused) return;
         Blue.Forward();
-
     }
-
 
     public override void GreenButtonPressed()
     {
+        if (IsPaused) return;
         Green.Forward();
     }
 
     public override void RedButtonPressed()
     {
+        if (IsPaused) return;
         Red.Forward();
     }
 
     public override void YellowButtonPressed()
     {
+        if (IsPaused) return;
         Yellow.Forward();
     }
 }
-  
 
 
 
-   
+
+
