@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ public class ObstaclePullManager : MonoBehaviour
     private void Awake()
     {
         obstacleScripts = new(GetComponentsInChildren<ObstacleScript>(true));
+        //Unity doesn't Seriazlize Queue, sorry for GetComponent . _. 
     }
     public void Spawn()
     {
@@ -16,7 +16,6 @@ public class ObstaclePullManager : MonoBehaviour
     }
     public void Despawn(ObstacleScript obst)
     {
-        Debug.Log("Why");
         obst.gameObject.SetActive(false);
         obst.transform.position = transform.position;
         obstacleScripts.Enqueue(obst);

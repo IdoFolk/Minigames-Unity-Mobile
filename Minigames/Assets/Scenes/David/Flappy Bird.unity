@@ -2564,10 +2564,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
-    - target: {fileID: 4836785085461551315, guid: 9b70344b26b5ea947a62811ff0ddf953, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6394068895761973998, guid: 9b70344b26b5ea947a62811ff0ddf953, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2960,7 +2956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127757819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 12.76, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

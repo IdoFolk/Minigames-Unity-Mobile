@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class PackageSoundManager : MonoBehaviour
 {
@@ -20,10 +17,5 @@ public class PackageSoundManager : MonoBehaviour
     private void Start()
     {
         Instance = this;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

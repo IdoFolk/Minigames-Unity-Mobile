@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PackageSpawner : MonoBehaviour
@@ -8,21 +5,14 @@ public class PackageSpawner : MonoBehaviour
     [SerializeField] RectTransform SpawnAreaRectTrans;
     [SerializeField] float SpawnerTimer;
     private float NextSpawnTime = 0f;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if(MiniGameManager.IsPaused) return;
-        if(Time.time >= NextSpawnTime)
-        {
-            PlacePackageOnRandomSpot();
-            NextSpawnTime = Time.time + SpawnerTimer;
-        }
+        if (MiniGameManager.IsPaused) return;
+        if (Time.time < NextSpawnTime) return;
+
+        PlacePackageOnRandomSpot();
+        NextSpawnTime = Time.time + SpawnerTimer;
     }
 
     public void PlacePackageOnRandomSpot()

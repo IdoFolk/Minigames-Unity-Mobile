@@ -117,6 +117,7 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         if (MiniGameManager.IsPaused) pauseButton.SetActive(false);
+        AdManager.Instance.LoadAd();
     }
     public void ExitGame()
     {

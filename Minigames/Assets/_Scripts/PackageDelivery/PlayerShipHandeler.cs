@@ -44,7 +44,6 @@ public class PlayerShipHandeler : MonoBehaviour
         if (MiniGameManager.IsPaused) return;
         PlayerActorRB.AddRelativeForce(new Vector2(0, 1 * MovmentSpeed * Time.deltaTime));
         PlayerScoreCount.SetText(Score.ToString());
-        //KeepPlayerOnScreen();
     }
 
     private void KeepPlayerOnScreen()
@@ -98,6 +97,7 @@ public class PlayerShipHandeler : MonoBehaviour
                 index = Score;
             }
             PackageOnPlayer.SetActive(false);
+            PackageGameManager.Instance.PickWinner();
 
 
         }

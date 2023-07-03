@@ -3434,14 +3434,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PackageGameManager, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 5231557908880611483, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 2636
-      objectReference: {fileID: 0}
-    - target: {fileID: 5231557908880611483, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     - target: {fileID: 5231557908880611484, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
       propertyPath: m_Name
       value: Winner Screen
