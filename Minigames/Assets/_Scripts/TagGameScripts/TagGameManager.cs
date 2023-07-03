@@ -28,7 +28,7 @@ public class TagGameManager : MiniGameManager
     {
         MiniGameManager.IsPaused = false;
 
-        PauseButton.SetActive(false);
+        PauseButton.SetActive(true);
         GameTimer.enabled = true;
     }
 
