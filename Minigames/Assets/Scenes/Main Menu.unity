@@ -2439,13 +2439,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 969172464}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 969172466}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: RotateTitleScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2759,7 +2759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07354619b6ca678489077cb0123188cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TitleName: {fileID: 1850769773}
+  MadeBy: {fileID: 1293289578}
   playMenu: {fileID: 1497884332}
+  PlayButton: {fileID: 470169410}
 --- !u!1 &1052947225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,7 +3284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: -80.8}
+  m_AnchoredPosition: {x: -250, y: -79.4}
   m_SizeDelta: {x: 1008.3157, y: 74.813416}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1293289580
