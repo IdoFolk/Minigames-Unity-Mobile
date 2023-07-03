@@ -80,14 +80,14 @@ public class PlayerShipHandeler : MonoBehaviour
     {
         if (collision.tag == "Package" && !isPackageOnPlayer)
         {
-            Debug.Log("Picked Up Package");
+            PackageSoundManager.Instance.Sfx.PlayOneShot(PackageSoundManager.Instance.PickUpSFX,0.6f);
             isPackageOnPlayer = true;
             PackageOnPlayer.SetActive(true);
             collision.gameObject.SetActive(false);
         }
         if (collision.gameObject == Base && isPackageOnPlayer)
         {
-            Debug.Log("Reached The Base");
+            PackageSoundManager.Instance.Sfx.PlayOneShot(PackageSoundManager.Instance.BringToBaseSFX,0.4f);
             isPackageOnPlayer = false;
             Score++;
             PackagesOnBase[index].SetActive(true);
@@ -106,7 +106,7 @@ public class PlayerShipHandeler : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log("Bruh");
+            PackageSoundManager.Instance.Sfx.PlayOneShot(PackageSoundManager.Instance.CollisionSFX,0.2f);
             Vector2 direction = (collision.rigidbody.velocity - PlayerActorRB.velocity);
             Vector2 knockBack = direction * KnockbackForce * Time.deltaTime;
             collision.rigidbody.AddForce(knockBack, ForceMode2D.Impulse);

@@ -171,7 +171,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 06a1f2648de1a61469420698df9f6ab1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.554
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1455,7 +1455,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &468511039
 GameObject:
@@ -2633,9 +2633,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMusic: {fileID: 585590920}
-  PickUpSound: {fileID: 0}
-  ReturnToBaseSound: {fileID: 0}
-  CollisionSound: {fileID: 52108257}
+  Sfx: {fileID: 52108257}
+  PickUpSFX: {fileID: 8300000, guid: 46ecc2d30e969fc47b5267a7ecfa8c82, type: 3}
+  BringToBaseSFX: {fileID: 8300000, guid: d25d6f6e94a776d439091291c039eedb, type: 3}
+  CollisionSFX: {fileID: 8300000, guid: 06a1f2648de1a61469420698df9f6ab1, type: 3}
+  LaunchRocket: {fileID: 8300000, guid: dafc6bb6b8c6a0547b42c8f347067b41, type: 3}
+  WinningMusic: {fileID: 8300000, guid: 0705b6cb59a788e409c8fbb0ca1b678f, type: 3}
 --- !u!4 &653117590
 Transform:
   m_ObjectHideFlags: 0
@@ -2649,7 +2652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &670490691
 PrefabInstance:
@@ -3407,6 +3410,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5231557908280410627, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 585590919}
+    - target: {fileID: 5231557908280410627, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Leave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231557908280410627, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PackageGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231557908746709872, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 585590919}
+    - target: {fileID: 5231557908746709872, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231557908746709872, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PackageGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5231557908880611484, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
       propertyPath: m_Name
       value: Winner Screen
@@ -3425,7 +3452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5231557908880611485, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5231557908880611485, guid: f70a759f0b1019a43972d8279378ba40, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3853,7 +3880,7 @@ RectTransform:
   - {fileID: 1660089705}
   - {fileID: 572233223}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10983,7 +11010,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1659498929
 PrefabInstance:

@@ -29,6 +29,7 @@ public class PackageGameManager : MiniGameManager
         Instance = new();
         BackgroundStars.Pause();
         PauseButton.SetActive(false);
+        PackageSoundManager.Instance.MainMusic.Pause();
     }
 
     void Update()
@@ -40,6 +41,7 @@ public class PackageGameManager : MiniGameManager
         MiniGameManager.IsPaused = false;
         BackgroundStars.Play();
         PauseButton.SetActive(true);
+        PackageSoundManager.Instance.MainMusic.Play();
     }
     private void OnApplicationFocus(bool focus)
     {
@@ -47,11 +49,13 @@ public class PackageGameManager : MiniGameManager
         {
             MiniGameManager.instace.Pause();
             BackgroundStars.Pause();
+            PackageSoundManager.Instance.MainMusic.Pause();
         }
         else
         {
             MiniGameManager.instace.Continue();
             BackgroundStars.Play();
+            PackageSoundManager.Instance.MainMusic.UnPause();
         }
         PauseButton.SetActive(focus);
         PauseMenu.SetActive(!focus);
@@ -62,11 +66,13 @@ public class PackageGameManager : MiniGameManager
         {
             MiniGameManager.instace.Pause();
             BackgroundStars.Pause();
+            PackageSoundManager.Instance.MainMusic.Pause();
         }
         else
         {
             MiniGameManager.instace.Continue();
             BackgroundStars.Play();
+            PackageSoundManager.Instance.MainMusic.UnPause();
         }
         PauseButton.SetActive(!pause);
         PauseMenu.SetActive(pause);
@@ -115,6 +121,7 @@ public class PackageGameManager : MiniGameManager
         MiniGameManager.IsPaused = true;
         WinScreen.SetActive(true);
         BackgroundStars.Pause();
+        PackageSoundManager.Instance.MainMusic.PlayOneShot(PackageSoundManager.Instance.WinningMusic, 0.15f);
 
     }
     public void Restart()
