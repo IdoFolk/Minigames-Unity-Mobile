@@ -40,12 +40,18 @@ public class PackageGameManager : MiniGameManager
     }
     private void OnApplicationFocus(bool focus)
     {
-        if (focus) { MiniGameManager.instace.Pause(); }
+        if (!focus)
+        {
+            MiniGameManager.instace.Pause();
+            PackageSoundManager.Instance.MainMusic.Pause();
+
+        }
         else MiniGameManager.instace.Continue();
-        PauseMenu.SetActive(focus);
-        PauseButton.SetActive(!focus);
-        Debug.Log(focus);
-        PauseButton.SetActive(!focus);
+        PauseMenu.SetActive(!focus);
+        PauseButton.SetActive(focus);
+        Debug.Log(!focus);
+        PackageSoundManager.Instance.MainMusic.UnPause();
+
     }
     public void OnApplicationPause(bool pause)
     {

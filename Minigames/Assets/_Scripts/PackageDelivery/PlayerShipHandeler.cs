@@ -84,7 +84,7 @@ public class PlayerShipHandeler : MonoBehaviour
             PackageOnPlayer.SetActive(true);
             collision.gameObject.SetActive(false);
         }
-        if (collision.gameObject == Base && isPackageOnPlayer)
+        if (collision.gameObject == Base && isPackageOnPlayer && !MiniGameManager.IsPaused)
         {
             PackageSoundManager.Instance.Sfx.PlayOneShot(PackageSoundManager.Instance.BringToBaseSFX,0.4f);
             isPackageOnPlayer = false;
