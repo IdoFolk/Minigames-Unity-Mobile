@@ -55,7 +55,7 @@ public class TagPlayerManager : MonoBehaviour
     {
         if (collision.gameObject.name == "Crown")
         {
-            StartCoroutine(TransferCrownWithDelay(collision.transform, 0f, 1f)); // Change the delay time here (e.g., 0.5f)
+            StartCoroutine(TransferCrownWithDelay(collision.transform, 0f, 0.3f)); // Change the delay time here (e.g., 0.5f)
         }
     }
 
