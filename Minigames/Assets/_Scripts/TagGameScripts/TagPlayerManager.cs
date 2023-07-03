@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class TagPlayerManager : MonoBehaviour
@@ -8,17 +10,18 @@ public class TagPlayerManager : MonoBehaviour
     [SerializeField] Rigidbody2D body;
     float moveSpeed = 7f;
 
+
     public void Update()
     {
-        if (MiniGameManager.IsPaused) return;
+
         transform.Rotate(0f, 0f, 100 * Time.deltaTime, Space.Self);
         KeepPlayerOnScreen();
     }
 
     public void Forward() // cancels rotation and moves forward
     {
-        if (MiniGameManager.IsPaused) return;
 
+        if (MiniGameManager.IsPaused) return;
         transform.Rotate(0f, 0f, -100 * Time.deltaTime, Space.Self);
         transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
     }
@@ -79,4 +82,6 @@ public class TagPlayerManager : MonoBehaviour
         crownTransform.GetComponent<Collider2D>().enabled = true;
     }
 }
+
+
 

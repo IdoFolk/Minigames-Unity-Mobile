@@ -7,24 +7,27 @@ using UnityEngine.SceneManagement;
 public class TagGameManager : MiniGameManager
 {
 
-        [SerializeField] GameObject PauseMenu;
-        [SerializeField] GameObject PauseButton;
-        [SerializeField] GameObject WinScreen;
-        [SerializeField] TMP_Text MiniGameWinnerText;
+    [SerializeField] TagPlayerManager Blue;
+    [SerializeField] TagPlayerManager Green;
+    [SerializeField] TagPlayerManager Red;
+    [SerializeField] TagPlayerManager Yellow;
 
-    public static TagGameManager Instance;
+    [SerializeField] GameObject PauseMenu;
+    [SerializeField] GameObject PauseButton;
+    [SerializeField] GameObject WinScreen;
+    [SerializeField] TMP_Text MiniGameWinnerText;
 
+   
     private void Start()
     {
         IsPaused = false;
-        Instance = new();
         PauseButton.SetActive(false);
     }
     public override void StartScene()
     {
         MiniGameManager.IsPaused = false;
-        
-        PauseButton.SetActive(true);
+
+        PauseButton.SetActive(false);
     }
 
     public void OnApplicationPause(bool pause)
@@ -42,14 +45,16 @@ public class TagGameManager : MiniGameManager
     }
 
     public void Restart()
-        {
-            SceneManager.LoadScene(gameObject.scene.buildIndex);
-        }
-        public void Leave()
-        {
-            SceneManager.LoadScene(0);
-        }
+    {
+        SceneManager.LoadScene(gameObject.scene.buildIndex);
+    }
+    public void Leave()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
+  
+
 
 
    
