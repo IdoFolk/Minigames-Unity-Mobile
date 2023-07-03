@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 868161316}
   - component: {fileID: 868161315}
   m_Layer: 0
-  m_Name: Loading_Bg (1)
+  m_Name: LoadingWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

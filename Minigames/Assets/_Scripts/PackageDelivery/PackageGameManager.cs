@@ -42,6 +42,7 @@ public class PackageGameManager : MiniGameManager
         BackgroundStars.Play();
         PauseButton.SetActive(true);
         PackageSoundManager.Instance.MainMusic.Play();
+        AdManager.Instance.LoadAd();
     }
     private void OnApplicationFocus(bool focus)
     {
@@ -122,7 +123,7 @@ public class PackageGameManager : MiniGameManager
         WinScreen.SetActive(true);
         BackgroundStars.Pause();
         PackageSoundManager.Instance.MainMusic.PlayOneShot(PackageSoundManager.Instance.WinningMusic, 0.15f);
-
+        AdManager.Instance.SetAdButtonActive(true);
     }
     public void Restart()
     {
