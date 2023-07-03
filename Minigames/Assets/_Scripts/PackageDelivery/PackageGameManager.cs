@@ -40,7 +40,12 @@ public class PackageGameManager : MiniGameManager
     }
     private void OnApplicationFocus(bool focus)
     {
-        OnApplicationPause(!focus);
+        if (focus) { MiniGameManager.instace.Pause(); }
+        else MiniGameManager.instace.Continue();
+        PauseMenu.SetActive(focus);
+        PauseButton.SetActive(!focus);
+        Debug.Log(focus);
+        PauseButton.SetActive(!focus);
     }
     public void OnApplicationPause(bool pause)
     {
